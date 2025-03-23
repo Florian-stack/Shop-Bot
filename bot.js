@@ -1,1 +1,1513 @@
-const _0x32cafc=_0x5b97;(function(_0x449467,_0x4fe16c){const _0x483019=_0x5b97,_0x3acfac=_0x449467();while(!![]){try{const _0x56a39a=parseInt(_0x483019(0x198))/0x1*(-parseInt(_0x483019(0x1d7))/0x2)+-parseInt(_0x483019(0x12b))/0x3+parseInt(_0x483019(0x12d))/0x4+-parseInt(_0x483019(0x1f8))/0x5*(-parseInt(_0x483019(0x24d))/0x6)+-parseInt(_0x483019(0x26b))/0x7*(-parseInt(_0x483019(0x25d))/0x8)+parseInt(_0x483019(0x17e))/0x9*(parseInt(_0x483019(0x160))/0xa)+parseInt(_0x483019(0x1b0))/0xb;if(_0x56a39a===_0x4fe16c)break;else _0x3acfac['push'](_0x3acfac['shift']());}catch(_0x10ee27){_0x3acfac['push'](_0x3acfac['shift']());}}}(_0x320d,0x31155));import{Client,GatewayIntentBits,EmbedBuilder,ActionRowBuilder,ButtonBuilder,ButtonStyle,StringSelectMenuBuilder}from'discord.js';import{SlashCommandBuilder}from'@discordjs/builders';import _0x1ae2c6 from'better-sqlite3';import _0x3503db from'path';import _0x515435 from'crypto';import{ComponentType}from'discord.js';function _0x320d(){const _0x25809d=['SELECT\x20payment_log_channel\x20FROM\x20config\x20WHERE\x20guild_id\x20=\x20?','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20SELECT\x20p.id,\x20p.name\x20FROM\x20wishlist\x20w\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20JOIN\x20products\x20p\x20ON\x20w.product_id\x20=\x20p.id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20WHERE\x20w.user_id\x20=\x20?\x0a\x20\x20\x20\x20\x20\x20\x20\x20','setFooter','setMaxValue','Wähle\x20ein\x20Produkt\x20aus...','random','🎁\x20','options','Bewertungstext','📁\x20Sofortdownload','name','rateproduct','Bestätigen','memberPermissions','✅\x20Produkt\x20hinzugefügt!','❌\x20Ungültiger\x20Coupon','MessageContent','Fehler\x20beim\x20Erstellen:','run','guild','🔒\x20Admin-Berechtigung\x20benötigt!','cwd','SHOP_BANNER','❌\x20Ungültiges\x20Produkt!','\x0a\x20\x20\x20\x20\x20\x20DELETE\x20FROM\x20wishlist\x20\x0a\x20\x20\x20\x20\x20\x20WHERE\x20user_id\x20=\x20?\x20AND\x20product_id\x20=\x20?\x0a\x20\x20\x20\x20','749535iiUjJy','Rabatt\x20in\x20%','321880iHmsyS','addChoices','randomBytes','💳\x20Neue\x20Paysafecard-Zahlung','getUser','leaderboard','coins','createproduct','delivery_type','Benutzer','\x0a\x20\x20CREATE\x20TABLE\x20IF\x20NOT\x20EXISTS\x20products\x20(\x0a\x20\x20\x20\x20id\x20INTEGER\x20PRIMARY\x20KEY\x20AUTOINCREMENT,\x0a\x20\x20\x20\x20name\x20TEXT,\x0a\x20\x20\x20\x20price\x20INTEGER,\x0a\x20\x20\x20\x20description\x20TEXT,\x0a\x20\x20\x20\x20image_url\x20TEXT,\x0a\x20\x20\x20\x20delivery_type\x20TEXT\x20CHECK(delivery_type\x20IN\x20(\x27FILE\x27,\x20\x27KEY\x27)),\x0a\x20\x20\x20\x20delivery_content\x20TEXT\x0a\x20\x20)','Success','Produkt-ID\x20aus\x20dem\x20Shop','setDescription','send','winners','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20INSERT\x20OR\x20IGNORE\x20INTO\x20wishlist\x20(user_id,\x20product_id)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20VALUES\x20(?,\x20?)\x0a\x20\x20\x20\x20\x20\x20\x20\x20','\x0a\x20\x20\x20\x20\x20\x20INSERT\x20INTO\x20user_coupons\x20(user_id,\x20coupon_code)\x0a\x20\x20\x20\x20\x20\x20VALUES\x20(?,\x20?)\x0a\x20\x20\x20\x20\x20\x20ON\x20CONFLICT\x20DO\x20NOTHING\x0a\x20\x20\x20\x20','approve','participants','tag','Setze\x20den\x20Payment-Log\x20Channel\x20(Admin)','rank','key','🎁\x20Deine\x20Wunschliste','✅\x20Bot\x20eingeloggt\x20als\x20','❌\x20Fehler\x20beim\x20Laden\x20des\x20Produkts!','pragma','startsWith','delete','values','✅\x20Coins\x20hinzugefügt','now','Paysafecode','🎉\x20**','Bestellnummer','🎉\x20NEUES\x20GIVEAWAY\x20🎉','getBoolean','🔒\x20Keine\x20Berechtigung!','payment_','setTimestamp','❌\x20Ein\x20Fehler\x20ist\x20bei\x20der\x20Zahlungsverarbeitung\x20aufgetreten!','🔑\x20Dein\x20Key:\x20||','getSubcommand','addcoins','discount_percent','\x20mit\x20','Fügt\x20Coins\x20hinzu\x20(Admin)','deferred','avg_rating','map','10vISFvU','total_ratings','\x0a\x20\x20CREATE\x20TABLE\x20IF\x20NOT\x20EXISTS\x20coupons\x20(\x0a\x20\x20\x20\x20code\x20TEXT\x20PRIMARY\x20KEY,\x0a\x20\x20\x20\x20discount_percent\x20INTEGER,\x0a\x20\x20\x20\x20product_ids\x20TEXT,\x0a\x20\x20\x20\x20expires_at\x20DATETIME,\x0a\x20\x20\x20\x20max_uses\x20INTEGER\x20DEFAULT\x201,\x0a\x20\x20\x20\x20uses\x20INTEGER\x20DEFAULT\x200\x0a\x20\x20)','📁\x20Direktdownload','wishlist','getInteger','Danger','❌\x20Ein\x20Fehler\x20ist\x20beim\x20Speichern\x20aufgetreten!','Läuft\x20ab','Produkt\x20hinzufügen','<@&','Kauffehler:','setThumbnail','\x20(#','getString','❌\x20Nur\x20für\x20Käufer!','\x20Coins','PAYMENT_LOGS','Dauer\x20in\x20Minuten','PRAGMA','update','channels','⚠️\x20Der\x20Shop\x20ist\x20aktuell\x20leer!','GIVEAWAY_CHANNEL','\x0a\x20\x20\x20\x20\x20\x20\x20\x20UPDATE\x20users\x20SET\x20coins\x20=\x20coins\x20+\x20?\x0a\x20\x20\x20\x20\x20\x20\x20\x20WHERE\x20user_id\x20=\x20?\x0a\x20\x20\x20\x20\x20\x20','paysafe_','split','Transaktionsfehler:','DirectMessages','delivery_content','1699767eOUGId',':R>','❌\x20Keine\x20Keys\x20verfügbar','Code','setMaxLength','ECONOMY','**Gewinner:**\x20','toJSON','showModal','Zeige\x20deine\x20Wunschliste','DAILY_COINS','\x20gespeichert','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20INSERT\x20OR\x20IGNORE\x20INTO\x20file_purchases\x20(user_id,\x20product_id)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20VALUES\x20(?,\x20?)\x0a\x20\x20\x20\x20\x20\x20\x20\x20','\x0a(Coupon-Rabatt\x20bereits\x20eingerechnet)','❌\x20Produkt\x20aus\x20Wunschliste\x20entfernt','error','Zeigt\x20die\x20Top\x2010\x20der\x20reichsten\x20User','interactionCreate','FILENAME','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20DELETE\x20FROM\x20wishlist\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20WHERE\x20user_id\x20=\x20?\x20AND\x20product_id\x20=\x20?\x0a\x20\x20\x20\x20\x20\x20\x20\x20','sort','\x20Coins!','\x0a\x20\x20\x20\x20\x20\x20INSERT\x20INTO\x20users\x20(user_id,\x20coins)\x0a\x20\x20\x20\x20\x20\x20VALUES\x20(?,\x20COALESCE((SELECT\x20coins\x20FROM\x20users\x20WHERE\x20user_id\x20=\x20?),\x200)\x20+\x20?)\x0a\x20\x20\x20\x20\x20\x20ON\x20CONFLICT(user_id)\x20DO\x20UPDATE\x20SET\x20coins\x20=\x20excluded.coins\x0a\x20\x20\x20\x20','products','setLabel','Keine\x20Teilnehmer\x20😢','1SXYttt','LEADERBOARD_THUMB','Erstellt\x20Rabattcode\x20(Admin)','get','commands','setColor','❌\x20Payment-System\x20nicht\x20konfiguriert!','Dein\x2016-stelliger\x20Paysafecode','setStyle','addChannelOption','payment_approve_','Stand:\x20','Secondary','Gewinner:\x20','addComponents','Link','16-stelliger\x20Paysafecode','test','Payment-ID','guildId','balance','\x0a\x20\x20\x20\x20\x20\x20SELECT\x20p.*,\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20AVG(r.rating)\x20as\x20avg_rating,\x0a\x20\x20\x20\x20\x20\x20\x20\x20COUNT(r.rating)\x20as\x20total_ratings\x0a\x20\x20\x20\x20\x20\x20FROM\x20products\x20p\x0a\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20product_ratings\x20r\x20ON\x20p.id\x20=\x20r.product_id\x0a\x20\x20\x20\x20\x20\x20WHERE\x20p.id\x20=\x20?\x0a\x20\x20\x20\x20','setURL','Betrag','1960409gYlakE','getChannel','\x20Coins\x20erhalten!','users','❌\x20Der\x20Channel\x20muss\x20ein\x20Text-Channel\x20sein!','COUPON_LENGTH','❌\x20Fehler\x20beim\x20Erstellen\x20des\x20Produkts!','\x0a\x20\x20\x20\x20\x20\x20SELECT\x201\x20FROM\x20(\x0a\x20\x20\x20\x20\x20\x20\x20\x20SELECT\x20product_id,\x20user_id\x20FROM\x20product_keys\x20WHERE\x20used\x20=\x201\x0a\x20\x20\x20\x20\x20\x20\x20\x20UNION\x0a\x20\x20\x20\x20\x20\x20\x20\x20SELECT\x20product_id,\x20user_id\x20FROM\x20file_purchases\x0a\x20\x20\x20\x20\x20\x20)\x20WHERE\x20product_id\x20=\x20?\x20AND\x20user_id\x20=\x20?\x0a\x20\x20\x20\x20','addStringOption','\x0a\x20\x20\x20\x20\x20\x20CREATE\x20TABLE\x20IF\x20NOT\x20EXISTS\x20user_coupons\x20(\x0a\x20\x20\x20\x20\x20\x20\x20\x20user_id\x20TEXT,\x0a\x20\x20\x20\x20\x20\x20\x20\x20coupon_code\x20TEXT,\x0a\x20\x20\x20\x20\x20\x20\x20\x20used\x20BOOLEAN\x20DEFAULT\x200,\x0a\x20\x20\x20\x20\x20\x20\x20\x20PRIMARY\x20KEY\x20(user_id,\x20coupon_code),\x0a\x20\x20\x20\x20\x20\x20\x20\x20FOREIGN\x20KEY(coupon_code)\x20REFERENCES\x20coupons(code)\x0a\x20\x20\x20\x20\x20\x20)','followUp','❌\x20Unbekannter\x20Fehler','payment_deny_','setTitle','DEFAULT_COLOR','toUpperCase','\x0a\x20\x20CREATE\x20TABLE\x20IF\x20NOT\x20EXISTS\x20users\x20(\x0a\x20\x20\x20\x20user_id\x20TEXT\x20PRIMARY\x20KEY,\x0a\x20\x20\x20\x20coins\x20INTEGER\x20DEFAULT\x200\x0a\x20\x20)','✅\x20100\x20Coins\x20erhalten!','SELECT\x20*\x20FROM\x20pending_payments\x20WHERE\x20payment_id\x20=\x20?\x20AND\x20status\x20=\x20\x27pending\x27','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20INSERT\x20INTO\x20users\x20(user_id,\x20coins)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20VALUES\x20(?,\x20COALESCE((SELECT\x20coins\x20FROM\x20users\x20WHERE\x20user_id\x20=\x20?),\x200)\x20+\x20?)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20ON\x20CONFLICT(user_id)\x20DO\x20UPDATE\x20SET\x20coins\x20=\x20excluded.coins\x0a\x20\x20\x20\x20\x20\x20\x20\x20','substring','Jetzt\x20downloaden','❌\x20Ein\x20kritischer\x20Fehler\x20ist\x20aufgetreten!','shop_select','paysafeCode','paywithpaysafe','Fehler\x20bei\x20Produktauswahl:','Lieferart','GuildMembers','join','PRODUCT_NOT_FOUND','🔑\x20Digitaler\x20Key','editReply','toString','fields','✅\x20Zahlung\x20erfolgreich\x20bestätigt','forEach','replied','image_url','479086cXlUDg','💰\x20Kontostand\x20von\x20','application','Mitmachen','Channel\x20für\x20Zahlungslogs','Key','\x0a\x20\x20\x20\x20SELECT\x20user_id,\x20coins\x20\x0a\x20\x20\x20\x20FROM\x20users\x20\x0a\x20\x20\x20\x20ORDER\x20BY\x20coins\x20DESC\x20\x0a\x20\x20\x20\x20LIMIT\x20?\x0a\x20\x20','Name','show','repeat','Ablehnen','username','setMinLength','\x0a\x20\x20CREATE\x20TABLE\x20IF\x20NOT\x20EXISTS\x20pending_payments\x20(\x0a\x20\x20\x20\x20payment_id\x20TEXT\x20PRIMARY\x20KEY,\x0a\x20\x20\x20\x20user_id\x20TEXT,\x0a\x20\x20\x20\x20product_id\x20INTEGER,\x0a\x20\x20\x20\x20paysafecode\x20TEXT,\x0a\x20\x20\x20\x20amount\x20INTEGER,\x0a\x20\x20\x20\x20status\x20TEXT\x20DEFAULT\x20\x27pending\x27,\x0a\x20\x20\x20\x20timestamp\x20DATETIME\x20DEFAULT\x20CURRENT_TIMESTAMP\x0a\x20\x20)','revealKey_','displayAvatarURL','Datei','SELECT\x20id\x20FROM\x20products\x20WHERE\x20id\x20=\x20?','image','🎉\x20GIVEAWAY\x20BEENDET\x20🎉','\x0a\x20\x20CREATE\x20TABLE\x20IF\x20NOT\x20EXISTS\x20config\x20(\x0a\x20\x20\x20\x20guild_id\x20TEXT\x20PRIMARY\x20KEY,\x0a\x20\x20\x20\x20payment_log_channel\x20TEXT\x0a\x20\x20)','❌\x20Zustellung\x20per\x20DM\x20fehlgeschlagen','addIntegerOption','hex','wishlist_','max','cache','push','UPDATE\x20pending_payments\x20SET\x20status\x20=\x20?\x20WHERE\x20payment_id\x20=\x20?','isButton','\x0a\x20\x20\x20\x20CREATE\x20TABLE\x20IF\x20NOT\x20EXISTS\x20file_purchases\x20(\x0a\x20\x20\x20\x20\x20\x20user_id\x20TEXT,\x0a\x20\x20\x20\x20\x20\x20product_id\x20INTEGER,\x0a\x20\x20\x20\x20\x20\x20purchase_date\x20DATETIME\x20DEFAULT\x20CURRENT_TIMESTAMP,\x0a\x20\x20\x20\x20\x20\x20PRIMARY\x20KEY\x20(user_id,\x20product_id)\x0a\x20\x20\x20\x20)','KEY_PREFIX','❌\x20Vorübergehend\x20ausverkauft!\x20Bitte\x20später\x20erneut\x20versuchen.','78865pKUxTZ','getTextInputValue','SELECT\x20coins\x20FROM\x20users\x20WHERE\x20user_id\x20=\x20?','reply','Zur\x20Wunschliste','Produkt\x20entfernen','paysafeModal_','Produkt-ID','setImage','redeem','createcoupon','isModalSubmit','\x0a\x20\x20\x20\x20\x20\x20SELECT\x20COUNT(*)\x20as\x20rank\x20\x0a\x20\x20\x20\x20\x20\x20FROM\x20users\x20\x0a\x20\x20\x20\x20\x20\x20WHERE\x20coins\x20>\x20(SELECT\x20coins\x20FROM\x20users\x20WHERE\x20user_id\x20=\x20?)\x0a\x20\x20\x20\x20','addUserOption','addBooleanOption','🏆\x20','floor','Produktbeschreibung','shop','payment_log_channel','diff','✅\x20Erfolgreich\x20teilgenommen!','approved','commandName','Zeigt\x20alle\x20verfügbaren\x20Produkte\x20an','isTextBased','SELECT\x20key\x20FROM\x20product_keys\x20WHERE\x20product_id\x20=\x20?\x20AND\x20used\x20=\x200\x20LIMIT\x201','replace','toISOString','UPDATE\x20coupons\x20SET\x20uses\x20=\x20uses\x20+\x201\x20WHERE\x20code\x20=\x20?','**Endet:**\x20<t:','Gültig\x20für','addSubcommand','channel','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20UPDATE\x20product_keys\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20SET\x20used\x20=\x201,\x20user_id\x20=\x20?\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20WHERE\x20key\x20=\x20?\x0a\x20\x20\x20\x20\x20\x20\x20\x20','\x0a\x20\x20\x20\x20\x20\x20UPDATE\x20product_keys\x20\x0a\x20\x20\x20\x20\x20\x20SET\x20used\x20=\x201,\x20user_id\x20=\x20?\x20\x0a\x20\x20\x20\x20\x20\x20WHERE\x20key\x20=\x20?\x0a\x20\x20\x20\x20','discount','**\x20Coins','Primary','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20UPDATE\x20user_coupons\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20SET\x20used\x20=\x201\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20WHERE\x20user_id\x20=\x20?\x20AND\x20coupon_code\x20=\x20?\x0a\x20\x20\x20\x20\x20\x20\x20\x20','❌\x20Benutzer\x20nicht\x20gefunden','Server','SELECT\x20*\x20FROM\x20products\x20WHERE\x20id\x20=\x20?','❌\x20Zahlung\x20nicht\x20gefunden\x20oder\x20bereits\x20bearbeitet!','Zeige\x20deine\x20Coins\x20an','has','global','1-5\x20Sterne','☆☆☆☆☆','🔑\x20Aktivierungscode','🎟️\x20Neuer\x20Coupon','Fehler\x20bei\x20Paysafe-Zahlung:','❌\x20Log-Channel\x20nicht\x20gefunden!','description','all','❌\x20Produkt\x20existiert\x20nicht','In\x20Wunschliste','Guilds','❌\x20Bereits\x20abgeholt!','Fehler\x20beim\x20Öffnen\x20des\x20Modals:','review','Preis','✅\x20Produkt\x20entfernt!','length','KEYS_EXHAUSTED','setPlaceholder','✅\x20Produkt\x20zur\x20Wunschliste\x20hinzugefügt','Defer\x20failed:','giveaway_','login','duration','%\x20Rabatt\x20angewendet!**','Coupon-Code','Zahle\x20mit\x20Paysafecard','⚠️\x20Bitte\x20shop-Befehl\x20neu\x20ausführen!','ROLES','setMinValue','product_id','isStringSelectMenu','Alle\x20Produkte','amount','addFields','price','Liefertyp','Ungültige\x20Produkt-ID:','6COZLoC','Bewertungen','Dein\x20Rang','deleted','Max.\x20Verwendungen','active_coupons','buy_','Produktname','Bewerte\x20ein\x20Produkt','\x0a\x20\x20\x20\x20\x20\x20INSERT\x20INTO\x20coupons\x20(code,\x20discount_percent,\x20product_ids,\x20expires_at,\x20max_uses)\x0a\x20\x20\x20\x20\x20\x20VALUES\x20(?,\x20?,\x20?,\x20?,\x20?)\x0a\x20\x20\x20\x20','\x20hat\x20','filter','Channel-ID','UPDATE\x20product_keys\x20SET\x20used\x20=\x201,\x20user_id\x20=\x20?\x20WHERE\x20key\x20=\x20?','Anderer\x20Benutzer','\x0a\x20\x20CREATE\x20TABLE\x20IF\x20NOT\x20EXISTS\x20daily_rewards\x20(\x0a\x20\x20\x20\x20user_id\x20TEXT\x20PRIMARY\x20KEY,\x0a\x20\x20\x20\x20last_claim\x20DATETIME\x0a\x20\x20)','16qrAWRL','\x0a\x20\x20\x20\x20\x20\x20\x20\x20UPDATE\x20users\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20SET\x20coins\x20=\x20coins\x20-\x20?\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20WHERE\x20user_id\x20=\x20?\x0a\x20\x20\x20\x20\x20\x20','Leer','Giveaway\x20bereits\x20beendet!','setEmoji','\x20-\x20Kaufbestätigung','user','\x20Leaderboard','setpaymentchannel','message','rating','\x20Coins**','components','XXXX-XXXX-XXXX-XXXX','794878lNgWur','Administrator','\x0aJeder\x20erhält\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20INSERT\x20INTO\x20products\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20(name,\x20price,\x20description,\x20image_url,\x20delivery_type,\x20delivery_content)\x0a\x20\x20\x20\x20\x20\x20\x20\x20VALUES\x20(?,\x20?,\x20?,\x20?,\x20?,\x20?)\x0a\x20\x20\x20\x20\x20\x20','setCustomId','log','...','customId','Rabatt','\x0a\x20\x20\x20\x20SELECT\x20key\x20FROM\x20product_keys\x20\x0a\x20\x20\x20\x20WHERE\x20user_id\x20=\x20?\x20AND\x20product_id\x20=\x20?\x20AND\x20used\x20=\x201\x20\x0a\x20\x20\x20\x20ORDER\x20BY\x20ROWID\x20DESC\x20\x0a\x20\x20\x20\x20LIMIT\x201\x0a\x20\x20','Anzahl\x20Gewinner','deferReply','Zahlung\x20für\x20','\x0a\x20\x20\x20\x20\x20\x20INSERT\x20INTO\x20wishlist\x20(user_id,\x20product_id)\x0a\x20\x20\x20\x20\x20\x20VALUES\x20(?,\x20?)\x0a\x20\x20\x20\x20','DATABASE','toLocaleString','add','getTime','\x0a\x20\x20\x20\x20\x20\x20INSERT\x20INTO\x20pending_payments\x20\x0a\x20\x20\x20\x20\x20\x20(payment_id,\x20user_id,\x20product_id,\x20paysafecode,\x20amount)\x0a\x20\x20\x20\x20\x20\x20VALUES\x20(?,\x20?,\x20?,\x20?,\x20?)\x0a\x20\x20\x20\x20','\x0a\x20\x20\x20\x20\x20\x20INSERT\x20INTO\x20product_ratings\x20(user_id,\x20product_id,\x20rating,\x20review)\x0a\x20\x20\x20\x20\x20\x20VALUES\x20(?,\x20?,\x20?,\x20?)\x0a\x20\x20\x20\x20\x20\x20ON\x20CONFLICT(user_id,\x20product_id)\x20\x0a\x20\x20\x20\x20\x20\x20DO\x20UPDATE\x20SET\x20rating\x20=\x20excluded.rating,\x20review\x20=\x20excluded.review\x0a\x20\x20\x20\x20','EMBEDS','includes','\x0a\x20\x20\x20\x20\x20\x20SELECT\x20*\x20FROM\x20coupons\x20\x0a\x20\x20\x20\x20\x20\x20WHERE\x20code\x20=\x20?\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20AND\x20(expires_at\x20>\x20CURRENT_TIMESTAMP)\x0a\x20\x20\x20\x20\x20\x20\x20\x20AND\x20(uses\x20<\x20max_uses)\x0a\x20\x20\x20\x20','Die\x20Lieferung\x20erfolgt\x20ausschließlich\x20per\x20DM','❌\x20Kein\x20Key\x20gefunden!','code','remove','setName','prepare','✅\x20Bewertung\x20gespeichert!','FILE','Unbekannter\x20User','<t:','Rabattcode\x20einlösen','lastInsertRowid','uses','❌\x20Ungültige\x20Produktauswahl!','KEY','user_id','setRequired','❌\x20Produkt\x20nicht\x20gefunden!'];_0x320d=function(){return _0x25809d;};return _0x320d();}import{MessageFlags}from'discord.js';function _0x5b97(_0x48f178,_0x6e77bf){const _0x320d98=_0x320d();return _0x5b97=function(_0x5b9771,_0x2b340c){_0x5b9771=_0x5b9771-0x108;let _0x33d8f0=_0x320d98[_0x5b9771];return _0x33d8f0;},_0x5b97(_0x48f178,_0x6e77bf);}import{ModalBuilder,TextInputBuilder,TextInputStyle}from'discord.js';import _0x458846 from'./config.js';const db=_0x1ae2c6(_0x3503db[_0x32cafc(0x1cd)](process[_0x32cafc(0x127)](),_0x458846[_0x32cafc(0x279)][_0x32cafc(0x190)]));db[_0x32cafc(0x148)](_0x458846['DATABASE'][_0x32cafc(0x173)]),db[_0x32cafc(0x287)](_0x32cafc(0x1c0))[_0x32cafc(0x124)](),db[_0x32cafc(0x287)](_0x32cafc(0x137))[_0x32cafc(0x124)](),db['prepare'](_0x32cafc(0x1e4))[_0x32cafc(0x124)](),db[_0x32cafc(0x287)](_0x32cafc(0x1eb))[_0x32cafc(0x124)](),db[_0x32cafc(0x287)]('\x0a\x20\x20CREATE\x20TABLE\x20IF\x20NOT\x20EXISTS\x20product_keys\x20(\x0a\x20\x20\x20\x20key\x20TEXT\x20PRIMARY\x20KEY,\x0a\x20\x20\x20\x20product_id\x20INTEGER,\x0a\x20\x20\x20\x20user_id\x20TEXT,\x0a\x20\x20\x20\x20used\x20BOOLEAN\x20DEFAULT\x200,\x0a\x20\x20\x20\x20FOREIGN\x20KEY(product_id)\x20REFERENCES\x20products(id)\x0a\x20\x20)')[_0x32cafc(0x124)](),db['prepare'](_0x32cafc(0x162))[_0x32cafc(0x124)](),db['prepare']('\x0a\x20\x20CREATE\x20TABLE\x20IF\x20NOT\x20EXISTS\x20product_ratings\x20(\x0a\x20\x20\x20\x20user_id\x20TEXT,\x0a\x20\x20\x20\x20product_id\x20INTEGER,\x0a\x20\x20\x20\x20rating\x20INTEGER\x20CHECK(rating\x20BETWEEN\x201\x20AND\x205),\x0a\x20\x20\x20\x20review\x20TEXT,\x0a\x20\x20\x20\x20timestamp\x20DATETIME\x20DEFAULT\x20CURRENT_TIMESTAMP,\x0a\x20\x20\x20\x20PRIMARY\x20KEY\x20(user_id,\x20product_id)\x0a\x20\x20)')['run'](),db['prepare']('\x0a\x20\x20CREATE\x20TABLE\x20IF\x20NOT\x20EXISTS\x20wishlist\x20(\x0a\x20\x20\x20\x20user_id\x20TEXT,\x0a\x20\x20\x20\x20product_id\x20INTEGER,\x0a\x20\x20\x20\x20PRIMARY\x20KEY\x20(user_id,\x20product_id)\x0a\x20\x20)')[_0x32cafc(0x124)](),db[_0x32cafc(0x287)](_0x32cafc(0x1f5))['run'](),db[_0x32cafc(0x287)]('\x0a\x20\x20\x20\x20\x20\x20CREATE\x20TABLE\x20IF\x20NOT\x20EXISTS\x20coupons\x20(\x0a\x20\x20\x20\x20\x20\x20\x20\x20code\x20TEXT\x20PRIMARY\x20KEY,\x0a\x20\x20\x20\x20\x20\x20\x20\x20discount_percent\x20INTEGER\x20CHECK(discount_percent\x20BETWEEN\x201\x20AND\x20100),\x0a\x20\x20\x20\x20\x20\x20\x20\x20product_ids\x20TEXT\x20DEFAULT\x20\x27all\x27,\x0a\x20\x20\x20\x20\x20\x20\x20\x20expires_at\x20DATETIME,\x0a\x20\x20\x20\x20\x20\x20\x20\x20max_uses\x20INTEGER\x20DEFAULT\x201,\x0a\x20\x20\x20\x20\x20\x20\x20\x20uses\x20INTEGER\x20DEFAULT\x200\x0a\x20\x20\x20\x20\x20\x20)')[_0x32cafc(0x124)](),db[_0x32cafc(0x287)](_0x32cafc(0x1b9))['run']();function generateProductKey(_0x1d53ed=_0x458846[_0x32cafc(0x183)][_0x32cafc(0x1f6)]){const _0x2f2a4a=_0x32cafc,_0x9b80d=_0x515435[_0x2f2a4a(0x12f)](0x8)[_0x2f2a4a(0x1d1)](_0x2f2a4a(0x1ee))[_0x2f2a4a(0x1bf)]();return _0x1d53ed+'-'+_0x9b80d;}function generateCouponCode(){const _0x338fa4=_0x32cafc;return _0x515435[_0x338fa4(0x12f)](_0x458846[_0x338fa4(0x183)][_0x338fa4(0x1b5)]/0x2)[_0x338fa4(0x1d1)](_0x338fa4(0x1ee))['toUpperCase']();}function getLeaderboard(_0x4babc5=0xa){const _0x5fecbe=_0x32cafc;return db[_0x5fecbe(0x287)](_0x5fecbe(0x1dd))[_0x5fecbe(0x22e)](_0x4babc5);}const client=new Client({'intents':[GatewayIntentBits[_0x32cafc(0x231)],GatewayIntentBits[_0x32cafc(0x1cc)],GatewayIntentBits[_0x32cafc(0x17c)],GatewayIntentBits['GuildMessages'],GatewayIntentBits[_0x32cafc(0x122)]]}),commands=[new SlashCommandBuilder()[_0x32cafc(0x286)](_0x32cafc(0x20a))[_0x32cafc(0x13a)](_0x32cafc(0x210)),new SlashCommandBuilder()['setName'](_0x32cafc(0x201))['setDescription'](_0x32cafc(0x10a))[_0x32cafc(0x1b8)](_0xf554bd=>_0xf554bd[_0x32cafc(0x286)](_0x32cafc(0x284))[_0x32cafc(0x13a)](_0x32cafc(0x240))[_0x32cafc(0x110)](!![])),new SlashCommandBuilder()['setName'](_0x32cafc(0x1c9))[_0x32cafc(0x13a)](_0x32cafc(0x241))[_0x32cafc(0x1b8)](_0x41784e=>_0x41784e[_0x32cafc(0x286)](_0x32cafc(0x284))[_0x32cafc(0x13a)](_0x32cafc(0x19f))[_0x32cafc(0x110)](!![])[_0x32cafc(0x1e3)](0x10)['setMaxLength'](0x10))['addIntegerOption'](_0x31f39b=>_0x31f39b[_0x32cafc(0x286)]('product_id')[_0x32cafc(0x13a)](_0x32cafc(0x139))[_0x32cafc(0x110)](!![])),new SlashCommandBuilder()[_0x32cafc(0x286)]('setpaymentchannel')['setDescription'](_0x32cafc(0x142))[_0x32cafc(0x1a1)](_0x45ebee=>_0x45ebee[_0x32cafc(0x286)](_0x32cafc(0x219))['setDescription'](_0x32cafc(0x1db))[_0x32cafc(0x110)](!![])),new SlashCommandBuilder()['setName'](_0x32cafc(0x1ac))[_0x32cafc(0x13a)](_0x32cafc(0x224))[_0x32cafc(0x205)](_0x45f8a5=>_0x45f8a5[_0x32cafc(0x286)](_0x32cafc(0x263))[_0x32cafc(0x13a)](_0x32cafc(0x25b))),new SlashCommandBuilder()['setName'](_0x32cafc(0x132))[_0x32cafc(0x13a)](_0x32cafc(0x18e))[_0x32cafc(0x206)](_0x54c43b=>_0x54c43b[_0x32cafc(0x286)]('global')[_0x32cafc(0x13a)]('Globales\x20Leaderboard\x20anzeigen?\x20(Admin-only)')),new SlashCommandBuilder()['setName']('giveaway')['setDescription']('Starte\x20ein\x20Giveaway')[_0x32cafc(0x1ed)](_0xc5ad8c=>_0xc5ad8c[_0x32cafc(0x286)](_0x32cafc(0x23e))[_0x32cafc(0x13a)](_0x32cafc(0x172))[_0x32cafc(0x110)](!![]))['addIntegerOption'](_0x1ba64c=>_0x1ba64c[_0x32cafc(0x286)]('coins')[_0x32cafc(0x13a)]('Coin-Menge')[_0x32cafc(0x110)](!![]))[_0x32cafc(0x1ed)](_0x412ac2=>_0x412ac2[_0x32cafc(0x286)]('winners')[_0x32cafc(0x13a)](_0x32cafc(0x275))['setRequired'](!![])),new SlashCommandBuilder()['setName'](_0x32cafc(0x134))[_0x32cafc(0x13a)]('Erstellt\x20ein\x20neues\x20Produkt\x20(Admin)')[_0x32cafc(0x1b8)](_0xa0e858=>_0xa0e858[_0x32cafc(0x286)](_0x32cafc(0x11c))[_0x32cafc(0x13a)](_0x32cafc(0x254))['setRequired'](!![]))[_0x32cafc(0x1ed)](_0x40d762=>_0x40d762[_0x32cafc(0x286)](_0x32cafc(0x24a))[_0x32cafc(0x13a)]('Preis\x20in\x20Coins')['setRequired'](!![]))['addStringOption'](_0x1aed2f=>_0x1aed2f[_0x32cafc(0x286)](_0x32cafc(0x22d))['setDescription'](_0x32cafc(0x209))[_0x32cafc(0x110)](!![]))[_0x32cafc(0x1b8)](_0x46683d=>_0x46683d['setName'](_0x32cafc(0x1e9))[_0x32cafc(0x13a)]('Bild-URL')['setRequired'](!![]))[_0x32cafc(0x1b8)](_0x3751c7=>_0x3751c7['setName']('delivery_type')[_0x32cafc(0x13a)](_0x32cafc(0x1cb))[_0x32cafc(0x12e)]({'name':_0x32cafc(0x1e7),'value':'FILE'},{'name':_0x32cafc(0x1dc),'value':'KEY'})[_0x32cafc(0x110)](!![]))[_0x32cafc(0x1b8)](_0x2ca6da=>_0x2ca6da[_0x32cafc(0x286)]('delivery_content')[_0x32cafc(0x13a)]('Datei-URL/Key-Präfix')['setRequired'](!![])),new SlashCommandBuilder()['setName']('addcoins')[_0x32cafc(0x13a)](_0x32cafc(0x15c))[_0x32cafc(0x205)](_0x507fa9=>_0x507fa9[_0x32cafc(0x286)](_0x32cafc(0x263))[_0x32cafc(0x13a)](_0x32cafc(0x136))[_0x32cafc(0x110)](!![]))[_0x32cafc(0x1ed)](_0x5c2587=>_0x5c2587['setName'](_0x32cafc(0x248))['setDescription']('Menge')[_0x32cafc(0x110)](!![])),new SlashCommandBuilder()[_0x32cafc(0x286)](_0x32cafc(0x202))['setDescription'](_0x32cafc(0x19a))[_0x32cafc(0x1ed)](_0x4d440b=>_0x4d440b['setName'](_0x32cafc(0x21c))[_0x32cafc(0x13a)](_0x32cafc(0x12c))[_0x32cafc(0x110)](!![]))[_0x32cafc(0x1ed)](_0x239c54=>_0x239c54[_0x32cafc(0x286)]('duration')[_0x32cafc(0x13a)]('Gültigkeit\x20in\x20Stunden')[_0x32cafc(0x110)](!![]))[_0x32cafc(0x1ed)](_0x36d017=>_0x36d017['setName'](_0x32cafc(0x10c))[_0x32cafc(0x13a)](_0x32cafc(0x251))[_0x32cafc(0x110)](!![]))['addStringOption'](_0x1a97fb=>_0x1a97fb[_0x32cafc(0x286)]('products')[_0x32cafc(0x13a)]('Kommagetrennte\x20IDs\x20(leer=alle)')),new SlashCommandBuilder()[_0x32cafc(0x286)](_0x32cafc(0x11d))[_0x32cafc(0x13a)](_0x32cafc(0x255))[_0x32cafc(0x1ed)](_0x3da094=>_0x3da094[_0x32cafc(0x286)]('product_id')[_0x32cafc(0x13a)]('Produkt-ID')[_0x32cafc(0x110)](!![]))['addIntegerOption'](_0x1e04fc=>_0x1e04fc['setName'](_0x32cafc(0x267))['setDescription'](_0x32cafc(0x227))[_0x32cafc(0x110)](!![])[_0x32cafc(0x244)](0x1)[_0x32cafc(0x115)](0x5))[_0x32cafc(0x1b8)](_0x1ce924=>_0x1ce924['setName'](_0x32cafc(0x234))[_0x32cafc(0x13a)](_0x32cafc(0x11a))),new SlashCommandBuilder()[_0x32cafc(0x286)](_0x32cafc(0x164))[_0x32cafc(0x13a)]('Wunschliste\x20verwalten')[_0x32cafc(0x218)](_0x21f0b7=>_0x21f0b7['setName'](_0x32cafc(0x1df))['setDescription'](_0x32cafc(0x187)))[_0x32cafc(0x218)](_0x2229dc=>_0x2229dc[_0x32cafc(0x286)](_0x32cafc(0x27b))[_0x32cafc(0x13a)](_0x32cafc(0x169))[_0x32cafc(0x1ed)](_0x86596d=>_0x86596d[_0x32cafc(0x286)](_0x32cafc(0x245))[_0x32cafc(0x13a)](_0x32cafc(0x1ff))[_0x32cafc(0x110)](!![])))[_0x32cafc(0x218)](_0x59cfcd=>_0x59cfcd['setName']('remove')[_0x32cafc(0x13a)](_0x32cafc(0x1fd))['addIntegerOption'](_0x26c0f5=>_0x26c0f5[_0x32cafc(0x286)]('product_id')[_0x32cafc(0x13a)](_0x32cafc(0x1ff))['setRequired'](!![])))][_0x32cafc(0x15f)](_0x385a00=>_0x385a00[_0x32cafc(0x185)]());client['on']('ready',async()=>{const _0x13f3a8=_0x32cafc;console[_0x13f3a8(0x270)](_0x13f3a8(0x146)+client['user'][_0x13f3a8(0x141)]),await client[_0x13f3a8(0x1d9)][_0x13f3a8(0x19c)]['set'](commands);}),client['on'](_0x32cafc(0x18f),async _0x40bd22=>{const _0x235cf6=_0x32cafc;if(_0x40bd22['commandName']!=='shop')return;const _0x2dfacf=db[_0x235cf6(0x287)]('\x0a\x20\x20\x20\x20SELECT\x20p.*,\x20\x0a\x20\x20\x20\x20\x20\x20AVG(r.rating)\x20as\x20avg_rating,\x0a\x20\x20\x20\x20\x20\x20COUNT(r.rating)\x20as\x20total_ratings\x0a\x20\x20\x20\x20FROM\x20products\x20p\x0a\x20\x20\x20\x20LEFT\x20JOIN\x20product_ratings\x20r\x20ON\x20p.id\x20=\x20r.product_id\x0a\x20\x20\x20\x20GROUP\x20BY\x20p.id\x0a\x20\x20')['all']();if(_0x2dfacf['length']===0x0)return _0x40bd22[_0x235cf6(0x1fb)]({'content':_0x235cf6(0x176),'ephemeral':!![]});const _0x29f7cd=new StringSelectMenuBuilder()[_0x235cf6(0x26f)](_0x235cf6(0x1c7))[_0x235cf6(0x239)](_0x235cf6(0x116))['addOptions'](_0x2dfacf[_0x235cf6(0x15f)](_0x258daa=>({'label':_0x258daa['name'][_0x235cf6(0x1c4)](0x0,0x19),'description':_0x258daa[_0x235cf6(0x24a)]+'\x20Coins\x20|\x20'+_0x258daa[_0x235cf6(0x22d)]['substring'](0x0,0x32)+_0x235cf6(0x271),'value':_0x258daa['id'][_0x235cf6(0x1d1)]()}))),_0x32b3f1=new ActionRowBuilder()[_0x235cf6(0x1a6)](_0x29f7cd),_0x45234b=new EmbedBuilder()[_0x235cf6(0x1bd)]('🎮\x20Game\x20Shop')[_0x235cf6(0x13a)]('Wähle\x20ein\x20Produkt\x20aus\x20dem\x20Menü\x20für\x20mehr\x20Details')[_0x235cf6(0x19d)](_0x458846[_0x235cf6(0x27f)]['DEFAULT_COLOR'])[_0x235cf6(0x200)](_0x458846[_0x235cf6(0x27f)][_0x235cf6(0x128)]);await _0x40bd22['reply']({'embeds':[_0x45234b],'components':[_0x32b3f1]});}),client['on'](_0x32cafc(0x18f),async _0x551d7c=>{const _0x2a7bd5=_0x32cafc;if(_0x551d7c[_0x2a7bd5(0x20f)]===_0x2a7bd5(0x159)){if(!_0x551d7c[_0x2a7bd5(0x11f)]['has'](_0x2a7bd5(0x26c)))return _0x551d7c[_0x2a7bd5(0x1fb)]({'content':_0x2a7bd5(0x126),'ephemeral':!![]});const _0x4979b9=_0x551d7c['options'][_0x2a7bd5(0x131)](_0x2a7bd5(0x263)),_0xcae953=_0x551d7c[_0x2a7bd5(0x119)][_0x2a7bd5(0x165)](_0x2a7bd5(0x248));db[_0x2a7bd5(0x287)](_0x2a7bd5(0x194))[_0x2a7bd5(0x124)](_0x4979b9['id'],_0x4979b9['id'],_0xcae953);const _0x2928ca=new EmbedBuilder()[_0x2a7bd5(0x1bd)](_0x2a7bd5(0x14c))['setDescription'](_0x4979b9[_0x2a7bd5(0x141)]+_0x2a7bd5(0x257)+_0xcae953+_0x2a7bd5(0x1b2))[_0x2a7bd5(0x249)]({'name':'Neuer\x20Kontostand','value':(db[_0x2a7bd5(0x287)](_0x2a7bd5(0x1fa))[_0x2a7bd5(0x19b)](_0x4979b9['id'])?.[_0x2a7bd5(0x133)]||0x0)+_0x2a7bd5(0x170)})[_0x2a7bd5(0x19d)](_0x458846[_0x2a7bd5(0x27f)]['DEFAULT_COLOR']);await _0x551d7c[_0x2a7bd5(0x1fb)]({'embeds':[_0x2928ca],'ephemeral':!![]});}}),client['on'](_0x32cafc(0x18f),async _0x1b466b=>{const _0x5e937e=_0x32cafc;if(_0x1b466b['commandName']===_0x5e937e(0x265)){if(!_0x1b466b['memberPermissions']['has'](_0x5e937e(0x26c)))return _0x1b466b[_0x5e937e(0x1fb)]({'content':_0x5e937e(0x126),'ephemeral':!![]});const _0x8b0a3=_0x1b466b[_0x5e937e(0x119)][_0x5e937e(0x1b1)](_0x5e937e(0x219));if(!_0x8b0a3['isTextBased']())return _0x1b466b[_0x5e937e(0x1fb)]({'content':_0x5e937e(0x1b4),'ephemeral':!![]});try{db['prepare']('\x0a\x20\x20\x20\x20\x20\x20\x20\x20INSERT\x20INTO\x20config\x20(guild_id,\x20payment_log_channel)\x0a\x20\x20\x20\x20\x20\x20\x20\x20VALUES\x20(?,\x20?)\x0a\x20\x20\x20\x20\x20\x20\x20\x20ON\x20CONFLICT(guild_id)\x20DO\x20UPDATE\x20SET\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20payment_log_channel\x20=\x20excluded.payment_log_channel\x0a\x20\x20\x20\x20\x20\x20')[_0x5e937e(0x124)](_0x1b466b['guildId'],_0x8b0a3['id']);const _0x25cd38=new EmbedBuilder()['setTitle']('✅\x20Payment-Channel\x20gesetzt')['setDescription']('Zahlungs-Logs\x20werden\x20jetzt\x20in\x20'+_0x8b0a3+_0x5e937e(0x189))[_0x5e937e(0x249)]({'name':_0x5e937e(0x259),'value':_0x8b0a3['id'],'inline':!![]})[_0x5e937e(0x19d)](_0x458846[_0x5e937e(0x27f)][_0x5e937e(0x1be)])['setTimestamp']();await _0x1b466b[_0x5e937e(0x1fb)]({'embeds':[_0x25cd38],'ephemeral':!![]});}catch(_0x46114d){console[_0x5e937e(0x18d)]('Fehler\x20beim\x20Setzen\x20des\x20Payment-Channels:',_0x46114d),await _0x1b466b[_0x5e937e(0x1fb)]({'content':_0x5e937e(0x167),'ephemeral':!![]});}}}),client['on'](_0x32cafc(0x18f),async _0x1437c4=>{const _0x352bd4=_0x32cafc;if(!_0x1437c4[_0x352bd4(0x246)]()||_0x1437c4['customId']!==_0x352bd4(0x1c7))return;try{await _0x1437c4['deferUpdate']();}catch(_0x4a79a8){console[_0x352bd4(0x18d)](_0x352bd4(0x23b),_0x4a79a8);return;}try{const _0x33e357=parseInt(_0x1437c4['values'][0x0]);if(isNaN(_0x33e357))return console[_0x352bd4(0x18d)](_0x352bd4(0x24c),_0x1437c4[_0x352bd4(0x14b)][0x0]),_0x1437c4[_0x352bd4(0x1ba)]({'content':_0x352bd4(0x10d),'ephemeral':!![]});const _0x475370=db['prepare'](_0x352bd4(0x1ad))[_0x352bd4(0x19b)](_0x33e357);if(!_0x475370)return await _0x1437c4[_0x352bd4(0x1ba)]({'content':'❌\x20Product\x20not\x20found!','flags':MessageFlags['Ephemeral']});if(!_0x1437c4[_0x352bd4(0x266)]||_0x1437c4[_0x352bd4(0x266)][_0x352bd4(0x250)])return _0x1437c4[_0x352bd4(0x1ba)]({'content':_0x352bd4(0x242),'ephemeral':!![]});const _0x339bb6=_0x475370[_0x352bd4(0x15e)]?'★'[_0x352bd4(0x1e0)](Math['round'](_0x475370[_0x352bd4(0x15e)]))['padEnd'](0x5,'☆'):_0x352bd4(0x228),_0x112ddb=new EmbedBuilder()['setTitle']('🎮\x20'+_0x475370[_0x352bd4(0x11c)])[_0x352bd4(0x13a)](_0x475370[_0x352bd4(0x22d)])['setColor'](_0x458846[_0x352bd4(0x27f)][_0x352bd4(0x1be)])[_0x352bd4(0x200)](_0x475370['image_url'])[_0x352bd4(0x249)]({'name':'Preis','value':'**'+_0x475370['price']+_0x352bd4(0x268),'inline':!![]},{'name':_0x352bd4(0x1cb),'value':_0x475370[_0x352bd4(0x135)]==='FILE'?_0x352bd4(0x11b):_0x352bd4(0x229),'inline':!![]},{'name':_0x352bd4(0x24e),'value':_0x339bb6+'\x20('+_0x475370[_0x352bd4(0x161)]+')','inline':!![]},{'name':_0x352bd4(0x1ff),'value':'#'+_0x475370['id'],'inline':!![]}),_0x208fee=new ActionRowBuilder()[_0x352bd4(0x1a6)](new ButtonBuilder()[_0x352bd4(0x26f)](_0x352bd4(0x253)+_0x475370['id'])[_0x352bd4(0x196)]('Jetzt\x20kaufen')['setStyle'](ButtonStyle[_0x352bd4(0x138)]),new ButtonBuilder()['setCustomId']('paysafe_'+_0x475370['id'])[_0x352bd4(0x196)]('Mit\x20Paysafe\x20zahlen')[_0x352bd4(0x1a0)](ButtonStyle[_0x352bd4(0x21e)])[_0x352bd4(0x261)]('💳'));await _0x1437c4['message']['edit']({'embeds':[_0x112ddb],'components':[_0x208fee]});}catch(_0x18587d){console[_0x352bd4(0x18d)](_0x352bd4(0x1ca),_0x18587d),await _0x1437c4[_0x352bd4(0x1ba)]({'content':_0x352bd4(0x147),'flags':MessageFlags['Ephemeral']});}}),client['on'](_0x32cafc(0x18f),async _0x583ae4=>{const _0x4b8f30=_0x32cafc;if(!_0x583ae4[_0x4b8f30(0x1f4)]()||!_0x583ae4[_0x4b8f30(0x272)][_0x4b8f30(0x149)](_0x4b8f30(0x179)))return;try{const _0x1b546a=_0x583ae4[_0x4b8f30(0x272)]['split']('_')[0x1],_0x437668=db[_0x4b8f30(0x287)](_0x4b8f30(0x222))[_0x4b8f30(0x19b)](_0x1b546a);if(!_0x437668)return _0x583ae4[_0x4b8f30(0x1fb)]({'content':_0x4b8f30(0x129),'ephemeral':!![]});const _0x4a1ce3=new ModalBuilder()[_0x4b8f30(0x26f)](_0x4b8f30(0x1fe)+_0x1b546a)[_0x4b8f30(0x1bd)](_0x4b8f30(0x277)+_0x437668[_0x4b8f30(0x11c)]),_0x1eb341=new TextInputBuilder()[_0x4b8f30(0x26f)](_0x4b8f30(0x1c8))[_0x4b8f30(0x196)](_0x4b8f30(0x1a8))[_0x4b8f30(0x1a0)](TextInputStyle['Short'])['setMinLength'](0x10)[_0x4b8f30(0x182)](0x10)[_0x4b8f30(0x110)](!![])[_0x4b8f30(0x239)](_0x4b8f30(0x26a)),_0x40eee7=new ActionRowBuilder()[_0x4b8f30(0x1a6)](_0x1eb341);_0x4a1ce3[_0x4b8f30(0x1a6)](_0x40eee7),await _0x583ae4[_0x4b8f30(0x186)](_0x4a1ce3);}catch(_0x19895f){console['error'](_0x4b8f30(0x233),_0x19895f),!_0x583ae4[_0x4b8f30(0x1d5)]&&!_0x583ae4[_0x4b8f30(0x15d)]&&await _0x583ae4[_0x4b8f30(0x1fb)]({'content':'❌\x20Fehler\x20beim\x20Öffnen\x20des\x20Zahlungsformulars!','ephemeral':!![]});}}),client['on'](_0x32cafc(0x18f),async _0x1c9fef=>{const _0x1c706e=_0x32cafc;if(!_0x1c9fef[_0x1c706e(0x203)]()||!_0x1c9fef[_0x1c706e(0x272)][_0x1c706e(0x149)](_0x1c706e(0x1fe)))return;await _0x1c9fef['deferReply']({'ephemeral':!![]});const _0x3f629e=_0x1c9fef[_0x1c706e(0x272)][_0x1c706e(0x17a)]('_')[0x1],_0x4e7dfb=_0x1c9fef[_0x1c706e(0x1d2)][_0x1c706e(0x1f9)](_0x1c706e(0x1c8));try{const _0x5ef760=db[_0x1c706e(0x287)](_0x1c706e(0x222))[_0x1c706e(0x19b)](_0x3f629e);if(!_0x5ef760)return _0x1c9fef[_0x1c706e(0x1d0)](_0x1c706e(0x111));if(!/^\d{16}$/[_0x1c706e(0x1a9)](_0x4e7dfb[_0x1c706e(0x213)](/\s/g,'')))return _0x1c9fef[_0x1c706e(0x1d0)]('❌\x20Ungültiger\x20Paysafecode!\x20Muss\x2016\x20Ziffern\x20enthalten.');const _0x24bab2=_0x515435['randomBytes'](0x8)[_0x1c706e(0x1d1)](_0x1c706e(0x1ee))[_0x1c706e(0x1bf)]();db[_0x1c706e(0x287)](_0x1c706e(0x27d))['run'](_0x24bab2,_0x1c9fef[_0x1c706e(0x263)]['id'],_0x3f629e,_0x4e7dfb,_0x5ef760[_0x1c706e(0x24a)]);const _0x2253d9=db[_0x1c706e(0x287)]('SELECT\x20payment_log_channel\x20FROM\x20config\x20WHERE\x20guild_id\x20=\x20?')[_0x1c706e(0x19b)](_0x1c9fef['guildId']);if(!_0x2253d9?.[_0x1c706e(0x20b)])return _0x1c9fef['editReply']('❌\x20Payment-System\x20nicht\x20konfiguriert!');const _0x5a3b92=_0x1c9fef[_0x1c706e(0x125)][_0x1c706e(0x175)][_0x1c706e(0x1f1)][_0x1c706e(0x19b)](_0x2253d9['CHANNELS'][_0x1c706e(0x171)]);if(!_0x5a3b92?.[_0x1c706e(0x211)]())return _0x1c9fef['editReply'](_0x1c706e(0x22c));const _0x509e6a=new EmbedBuilder()['setTitle'](_0x1c706e(0x130))[_0x1c706e(0x19d)](_0x2253d9[_0x1c706e(0x27f)][_0x1c706e(0x1be)])['addFields']({'name':_0x1c706e(0x1aa),'value':_0x24bab2},{'name':_0x1c706e(0x136),'value':_0x1c9fef[_0x1c706e(0x263)][_0x1c706e(0x141)]+'\x20('+_0x1c9fef[_0x1c706e(0x263)]['id']+')'},{'name':'Produkt','value':_0x5ef760[_0x1c706e(0x11c)]+_0x1c706e(0x16d)+_0x3f629e+')'},{'name':_0x1c706e(0x1af),'value':_0x5ef760[_0x1c706e(0x24a)]+_0x1c706e(0x170)},{'name':'Paysafecode','value':'||'+_0x4e7dfb+'||'})['setThumbnail'](_0x1c9fef[_0x1c706e(0x263)][_0x1c706e(0x1e6)]())[_0x1c706e(0x155)](),_0x2dc909=new ActionRowBuilder()[_0x1c706e(0x1a6)](new ButtonBuilder()[_0x1c706e(0x26f)](_0x1c706e(0x1a2)+_0x24bab2)[_0x1c706e(0x196)](_0x1c706e(0x11e))['setStyle'](ButtonStyle[_0x1c706e(0x138)]),new ButtonBuilder()[_0x1c706e(0x26f)]('payment_deny_'+_0x24bab2)[_0x1c706e(0x196)](_0x1c706e(0x1e1))[_0x1c706e(0x1a0)](ButtonStyle[_0x1c706e(0x166)]));await _0x5a3b92[_0x1c706e(0x13b)]({'content':_0x1c706e(0x16a)+_0x2253d9[_0x1c706e(0x243)]['ADMIN']+'>','embeds':[_0x509e6a],'components':[_0x2dc909]}),await _0x1c9fef['editReply']({'content':'✅\x20Zahlung\x20erfolgreich\x20eingereicht!\x20Ein\x20Admin\x20wird\x20sie\x20bald\x20überprüfen.'});}catch(_0x461863){console['error'](_0x1c706e(0x22b),_0x461863),await _0x1c9fef[_0x1c706e(0x1d0)]({'content':_0x1c706e(0x156)});}}),client['on'](_0x32cafc(0x18f),async _0x36cce9=>{const _0x9262f3=_0x32cafc;if(_0x36cce9[_0x9262f3(0x20f)]===_0x9262f3(0x1c9)){await _0x36cce9[_0x9262f3(0x276)]({'ephemeral':!![]});const _0x351813=_0x36cce9[_0x9262f3(0x119)]['getString'](_0x9262f3(0x284)),_0x14073e=_0x36cce9['options'][_0x9262f3(0x165)](_0x9262f3(0x245)),_0x2b94ed=db[_0x9262f3(0x287)](_0x9262f3(0x222))[_0x9262f3(0x19b)](_0x14073e);if(!_0x2b94ed)return _0x36cce9[_0x9262f3(0x1d0)](_0x9262f3(0x129));const _0x78faf0=_0x515435[_0x9262f3(0x12f)](0x8)[_0x9262f3(0x1d1)](_0x9262f3(0x1ee))[_0x9262f3(0x1bf)]();db[_0x9262f3(0x287)](_0x9262f3(0x27d))[_0x9262f3(0x124)](_0x78faf0,_0x36cce9['user']['id'],_0x14073e,_0x351813,_0x2b94ed[_0x9262f3(0x24a)]);const _0x205466=db[_0x9262f3(0x287)](_0x9262f3(0x112))[_0x9262f3(0x19b)](_0x36cce9[_0x9262f3(0x1ab)]);if(!_0x205466?.[_0x9262f3(0x20b)])return _0x36cce9[_0x9262f3(0x1d0)](_0x9262f3(0x19e));const _0x52abe6=_0x36cce9[_0x9262f3(0x125)][_0x9262f3(0x175)][_0x9262f3(0x1f1)][_0x9262f3(0x19b)](_0x205466['CHANNELS'][_0x9262f3(0x171)]);if(!_0x52abe6)return _0x36cce9[_0x9262f3(0x1d0)](_0x9262f3(0x22c));const _0x5a693b=new EmbedBuilder()[_0x9262f3(0x1bd)]('💳\x20Neue\x20Paysafecard-Zahlung')['setColor'](_0x205466[_0x9262f3(0x27f)][_0x9262f3(0x1be)])[_0x9262f3(0x249)]({'name':_0x9262f3(0x1aa),'value':_0x78faf0},{'name':'Benutzer','value':_0x36cce9[_0x9262f3(0x263)][_0x9262f3(0x141)]+'\x20('+_0x36cce9[_0x9262f3(0x263)]['id']+')'},{'name':'Produkt','value':_0x2b94ed['name']+_0x9262f3(0x16d)+_0x14073e+')'},{'name':_0x9262f3(0x1af),'value':_0x2b94ed[_0x9262f3(0x24a)]+'\x20Coins'},{'name':_0x9262f3(0x14e),'value':'||'+_0x351813+'||'})['setTimestamp'](),_0x1f4e8c=new ActionRowBuilder()[_0x9262f3(0x1a6)](new ButtonBuilder()[_0x9262f3(0x26f)](_0x9262f3(0x1a2)+_0x78faf0)[_0x9262f3(0x196)](_0x9262f3(0x11e))['setStyle'](ButtonStyle[_0x9262f3(0x138)]),new ButtonBuilder()[_0x9262f3(0x26f)](_0x9262f3(0x1bc)+_0x78faf0)[_0x9262f3(0x196)](_0x9262f3(0x1e1))[_0x9262f3(0x1a0)](ButtonStyle[_0x9262f3(0x166)]));await _0x52abe6[_0x9262f3(0x13b)]({'embeds':[_0x5a693b],'components':[_0x1f4e8c]}),await _0x36cce9['editReply']('✅\x20Zahlung\x20eingereicht!\x20Ein\x20Admin\x20wird\x20diese\x20bald\x20überprüfen.');}}),client['on'](_0x32cafc(0x18f),async _0xdbf036=>{const _0x523c38=_0x32cafc;if(!_0xdbf036[_0x523c38(0x1f4)]()||!_0xdbf036['customId']['startsWith'](_0x523c38(0x154)))return;const [_0x5b7746,_0x35e58c]=_0xdbf036[_0x523c38(0x272)]['split']('_')['slice'](0x1);if(![_0x523c38(0x13f),'deny']['includes'](_0x5b7746))return;if(!_0xdbf036[_0x523c38(0x11f)][_0x523c38(0x225)]('Administrator'))return _0xdbf036[_0x523c38(0x1fb)]({'content':'❌\x20Admin-Berechtigung\x20benötigt!','ephemeral':!![]});const _0x4043db=db[_0x523c38(0x287)](_0x523c38(0x1c2))[_0x523c38(0x19b)](_0x35e58c);if(!_0x4043db)return _0xdbf036[_0x523c38(0x1fb)]({'content':_0x523c38(0x223),'ephemeral':!![]});try{db[_0x523c38(0x287)](_0x523c38(0x1f3))[_0x523c38(0x124)](_0x523c38(0x20e),_0x35e58c);const _0x71ae2=db[_0x523c38(0x287)](_0x523c38(0x222))['get'](_0x4043db[_0x523c38(0x245)]);if(!_0x71ae2)throw new Error(_0x523c38(0x1ce));const _0x1945f8=await client[_0x523c38(0x1b3)]['fetch'](_0x4043db[_0x523c38(0x10f)]);if(!_0x1945f8)throw new Error('USER_NOT_FOUND');const _0x12a485=db[_0x523c38(0x287)]('UPDATE\x20pending_payments\x20SET\x20status\x20=\x20?\x20WHERE\x20payment_id\x20=\x20?')[_0x523c38(0x124)]('approved',_0x35e58c);if(_0x71ae2[_0x523c38(0x135)]===_0x523c38(0x10e)){const _0x1e3371=db[_0x523c38(0x287)]('\x0a\x20\x20\x20\x20\x20\x20SELECT\x20key\x20FROM\x20product_keys\x20\x0a\x20\x20\x20\x20\x20\x20WHERE\x20product_id\x20=\x20?\x20AND\x20used\x20=\x200\x20\x0a\x20\x20\x20\x20\x20\x20LIMIT\x201\x0a\x20\x20\x20\x20')[_0x523c38(0x19b)](_0x71ae2['id']);if(!_0x1e3371)throw new Error('KEYS_EXHAUSTED');db[_0x523c38(0x287)](_0x523c38(0x21b))[_0x523c38(0x124)](_0x4043db[_0x523c38(0x10f)],_0x1e3371[_0x523c38(0x144)]);}else _0x71ae2['delivery_type']===_0x523c38(0x289)&&db['prepare']('\x0a\x20\x20\x20\x20\x20\x20INSERT\x20INTO\x20file_purchases\x20(user_id,\x20product_id)\x20\x0a\x20\x20\x20\x20\x20\x20VALUES\x20(?,\x20?)\x0a\x20\x20\x20\x20')[_0x523c38(0x124)](_0x4043db['user_id'],_0x71ae2['id']);let _0x7af60b=[],_0x346308=_0x71ae2[_0x523c38(0x22d)];if(_0x71ae2[_0x523c38(0x135)]===_0x523c38(0x10e)){const _0x3dbfb9=db[_0x523c38(0x287)](_0x523c38(0x212))[_0x523c38(0x19b)](_0x71ae2['id']);if(!_0x3dbfb9)throw new Error(_0x523c38(0x238));db['prepare'](_0x523c38(0x25a))[_0x523c38(0x124)](_0x1945f8['id'],_0x3dbfb9['key']),_0x7af60b[_0x523c38(0x1f2)](new ActionRowBuilder()[_0x523c38(0x1a6)](new ButtonBuilder()[_0x523c38(0x26f)](_0x523c38(0x1e5)+_0x71ae2['id'])['setLabel']('Key\x20anzeigen')[_0x523c38(0x1a0)](ButtonStyle['Primary'])['setEmoji']('🔑')));}else _0x71ae2['delivery_type']==='FILE'&&_0x7af60b[_0x523c38(0x1f2)](new ActionRowBuilder()[_0x523c38(0x1a6)](new ButtonBuilder()[_0x523c38(0x196)](_0x523c38(0x1c5))[_0x523c38(0x1ae)](_0x71ae2[_0x523c38(0x17d)])[_0x523c38(0x1a0)](ButtonStyle[_0x523c38(0x1a7)])));const _0x3bdb30=new EmbedBuilder()['setTitle'](_0x523c38(0x118)+_0x71ae2[_0x523c38(0x11c)]+_0x523c38(0x262))[_0x523c38(0x13a)](_0x346308)['addFields']({'name':_0x523c38(0x150),'value':'#'+_0x515435['randomBytes'](0x4)[_0x523c38(0x1d1)](_0x523c38(0x1ee))[_0x523c38(0x1bf)](),'inline':!![]},{'name':'Lieferart','value':_0x71ae2[_0x523c38(0x135)]===_0x523c38(0x10e)?_0x523c38(0x1cf):_0x523c38(0x163),'inline':!![]})['setColor'](_0x458846[_0x523c38(0x27f)][_0x523c38(0x1be)])[_0x523c38(0x16c)](_0x71ae2[_0x523c38(0x1d6)])[_0x523c38(0x114)]({'text':_0x523c38(0x282)});await _0x1945f8[_0x523c38(0x13b)]({'embeds':[_0x3bdb30],'components':_0x7af60b}),await _0xdbf036[_0x523c38(0x174)]({'content':_0x523c38(0x1d3),'components':[]});}catch(_0x213748){console['error'](_0x523c38(0x17b),_0x213748);const _0x52e435={'PRODUCT_NOT_FOUND':_0x523c38(0x22f),'USER_NOT_FOUND':_0x523c38(0x220),'KEYS_EXHAUSTED':_0x523c38(0x180),'DM_DELIVERY_FAILED':_0x523c38(0x1ec)};await _0xdbf036[_0x523c38(0x1fb)]({'content':_0x52e435[_0x213748[_0x523c38(0x266)]]||_0x523c38(0x1bb),'ephemeral':!![]});}}),client['on'](_0x32cafc(0x18f),async _0x298b4a=>{const _0x3dd63e=_0x32cafc;if(_0x298b4a[_0x3dd63e(0x20f)]===_0x3dd63e(0x132)){const _0x5dc975=_0x298b4a['options'][_0x3dd63e(0x152)](_0x3dd63e(0x226))||![];if(_0x5dc975&&!_0x298b4a[_0x3dd63e(0x11f)][_0x3dd63e(0x225)]('Administrator'))return _0x298b4a['reply']({'content':'🔐\x20Globales\x20Leaderboard\x20erfordert\x20Admin-Rechte!','ephemeral':!![]});const _0x1fcf53=getLeaderboard(0xa,!_0x5dc975,_0x298b4a['guildId']),_0x23a478=new EmbedBuilder()['setTitle'](_0x3dd63e(0x207)+(_0x5dc975?'Globales':_0x3dd63e(0x221))+_0x3dd63e(0x264))[_0x3dd63e(0x19d)](_0x458846[_0x3dd63e(0x27f)][_0x3dd63e(0x1be)])['setThumbnail'](_0x458846[_0x3dd63e(0x27f)][_0x3dd63e(0x199)])[_0x3dd63e(0x114)]({'text':_0x3dd63e(0x1a3)+new Date()[_0x3dd63e(0x27a)]('de-DE')});if(_0x1fcf53['length']===0x0)return _0x23a478[_0x3dd63e(0x13a)]('❌\x20Keine\x20Daten\x20verfügbar'),_0x298b4a['reply']({'embeds':[_0x23a478]});const _0x13bc38=['🥇','🥈','🥉'];for(let _0x10c2ed=0x0;_0x10c2ed<_0x1fcf53[_0x3dd63e(0x237)];_0x10c2ed++){const _0x30b8b1=await client[_0x3dd63e(0x1b3)]['fetch'](_0x1fcf53[_0x10c2ed][_0x3dd63e(0x10f)])['catch'](()=>null),_0x629738=_0x1fcf53[_0x10c2ed][_0x3dd63e(0x133)][_0x3dd63e(0x27a)]('de-DE');_0x23a478[_0x3dd63e(0x249)]({'name':(_0x10c2ed<0x3?_0x13bc38[_0x10c2ed]:'#'+(_0x10c2ed+0x1))+'\x20'+(_0x30b8b1?.[_0x3dd63e(0x1e2)]||_0x3dd63e(0x108)),'value':'**'+_0x629738+_0x3dd63e(0x21d),'inline':![]});}const _0x457546=db[_0x3dd63e(0x287)](_0x3dd63e(0x204))['get'](_0x298b4a[_0x3dd63e(0x263)]['id'])?.[_0x3dd63e(0x143)]+0x1;_0x23a478[_0x3dd63e(0x249)]({'name':_0x3dd63e(0x24f),'value':_0x457546?'Platz\x20#'+_0x457546+_0x3dd63e(0x15b)+(db[_0x3dd63e(0x287)](_0x3dd63e(0x1fa))['get'](_0x298b4a['user']['id'])?.[_0x3dd63e(0x133)]||0x0)+_0x3dd63e(0x170):'Nicht\x20in\x20der\x20Top\x20100','inline':![]}),await _0x298b4a[_0x3dd63e(0x1fb)]({'embeds':[_0x23a478]});}}),client['on'](_0x32cafc(0x18f),async _0x4b2622=>{const _0x33bcc5=_0x32cafc;if(_0x4b2622[_0x33bcc5(0x20f)]===_0x33bcc5(0x201)){const _0x2b826b=_0x4b2622['options'][_0x33bcc5(0x16e)](_0x33bcc5(0x284)),_0x222c8b=db[_0x33bcc5(0x287)](_0x33bcc5(0x281))[_0x33bcc5(0x19b)](_0x2b826b);if(!_0x222c8b)return _0x4b2622[_0x33bcc5(0x1fb)](_0x33bcc5(0x121));db[_0x33bcc5(0x287)](_0x33bcc5(0x13e))[_0x33bcc5(0x124)](_0x4b2622[_0x33bcc5(0x263)]['id'],_0x2b826b),db[_0x33bcc5(0x287)](_0x33bcc5(0x215))[_0x33bcc5(0x124)](_0x2b826b),_0x4b2622[_0x33bcc5(0x1fb)]('✅\x20Coupon\x20aktiviert!');}}),db[_0x32cafc(0x287)](_0x32cafc(0x25c))['run'](),client['on'](_0x32cafc(0x18f),async _0x3c0e9f=>{const _0x5363b6=_0x32cafc;if(_0x3c0e9f[_0x5363b6(0x20f)]==='daily'){const _0x2ed997=db[_0x5363b6(0x287)]('\x0a\x20\x20\x20\x20\x20\x20\x20\x20INSERT\x20INTO\x20daily_rewards\x20(user_id,\x20last_claim)\x0a\x20\x20\x20\x20\x20\x20\x20\x20VALUES\x20(?,\x20?)\x0a\x20\x20\x20\x20\x20\x20\x20\x20ON\x20CONFLICT(user_id)\x20DO\x20UPDATE\x20SET\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20last_claim\x20=\x20CASE\x20WHEN\x20strftime(\x27%s\x27,\x27now\x27)\x20-\x20strftime(\x27%s\x27,last_claim)\x20>=\x2086400\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20THEN\x20strftime(\x27%s\x27,\x27now\x27)\x20ELSE\x20last_claim\x20END\x0a\x20\x20\x20\x20\x20\x20\x20\x20RETURNING\x20strftime(\x27%s\x27,\x27now\x27)\x20-\x20strftime(\x27%s\x27,last_claim)\x20as\x20diff\x0a\x20\x20\x20\x20\x20\x20')[_0x5363b6(0x19b)](_0x3c0e9f['user']['id'],Math[_0x5363b6(0x208)](Date[_0x5363b6(0x14d)]()/0x3e8));if(_0x2ed997[_0x5363b6(0x20c)]<0x15180)return _0x3c0e9f[_0x5363b6(0x1fb)](_0x5363b6(0x232));db[_0x5363b6(0x287)](_0x5363b6(0x178))[_0x5363b6(0x124)](_0x458846['ECONOMY'][_0x5363b6(0x188)],_0x3c0e9f['user']['id']),_0x3c0e9f[_0x5363b6(0x1fb)](_0x5363b6(0x1c1));}}),client['on'](_0x32cafc(0x18f),async _0x5900a1=>{const _0x129f66=_0x32cafc;if(!_0x5900a1[_0x129f66(0x1f4)]()||!_0x5900a1[_0x129f66(0x272)][_0x129f66(0x149)]('wishlist_'))return;await _0x5900a1['deferReply']({'ephemeral':!![]});const _0x5afa68=_0x5900a1[_0x129f66(0x272)][_0x129f66(0x17a)]('_')[0x1],_0x1eb8ac=db[_0x129f66(0x287)](_0x129f66(0x1e8))[_0x129f66(0x19b)](_0x5afa68);if(!_0x1eb8ac)return _0x5900a1[_0x129f66(0x1d0)]('❌\x20Produkt\x20nicht\x20gefunden!');const _0x3d43a5=db[_0x129f66(0x287)]('\x0a\x20\x20\x20\x20SELECT\x201\x20FROM\x20wishlist\x20\x0a\x20\x20\x20\x20WHERE\x20user_id\x20=\x20?\x20AND\x20product_id\x20=\x20?\x0a\x20\x20')[_0x129f66(0x19b)](_0x5900a1['user']['id'],_0x5afa68);_0x3d43a5?(db[_0x129f66(0x287)](_0x129f66(0x12a))[_0x129f66(0x124)](_0x5900a1['user']['id'],_0x5afa68),_0x5900a1[_0x129f66(0x1d0)](_0x129f66(0x18c))):(db['prepare'](_0x129f66(0x278))[_0x129f66(0x124)](_0x5900a1['user']['id'],_0x5afa68),_0x5900a1['editReply'](_0x129f66(0x23a)));const _0x5d6b3c=new ButtonBuilder()[_0x129f66(0x26f)](_0x129f66(0x1ef)+_0x5afa68)[_0x129f66(0x196)](_0x3d43a5?_0x129f66(0x1fc):_0x129f66(0x230))[_0x129f66(0x1a0)](_0x3d43a5?ButtonStyle[_0x129f66(0x138)]:ButtonStyle[_0x129f66(0x1a4)])['setEmoji'](_0x3d43a5?'❤️':'🤍'),_0x3cd972=new ActionRowBuilder()[_0x129f66(0x1a6)](_0x5900a1[_0x129f66(0x266)][_0x129f66(0x269)][0x0][_0x129f66(0x269)][0x0],_0x5d6b3c);await _0x5900a1[_0x129f66(0x266)]['edit']({'components':[_0x3cd972]});}),client['on']('interactionCreate',async _0x28e32d=>{const _0x5a01ea=_0x32cafc;if(!_0x28e32d[_0x5a01ea(0x1f4)]()||!_0x28e32d[_0x5a01ea(0x272)][_0x5a01ea(0x149)]('buy_'))return;await _0x28e32d['deferReply']({'ephemeral':!![]});const _0x530b53=_0x28e32d['customId'][_0x5a01ea(0x17a)]('_')[0x1];try{const _0x50c446=db['prepare']('\x0a\x20\x20\x20\x20\x20\x20SELECT\x20*,\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20(SELECT\x20GROUP_CONCAT(code)\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20FROM\x20user_coupons\x20uc\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20JOIN\x20coupons\x20c\x20ON\x20uc.coupon_code\x20=\x20c.code\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20WHERE\x20uc.user_id\x20=\x20?\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20AND\x20uc.used\x20=\x200\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20AND\x20(c.product_ids\x20=\x20\x27all\x27\x20OR\x20instr(\x27,\x27||c.product_ids||\x27,\x27,\x20\x27,\x27||products.id||\x27,\x27))\x0a\x20\x20\x20\x20\x20\x20\x20\x20)\x20as\x20active_coupons\x0a\x20\x20\x20\x20\x20\x20FROM\x20products\x20\x0a\x20\x20\x20\x20\x20\x20WHERE\x20id\x20=\x20?\x0a\x20\x20\x20\x20')[_0x5a01ea(0x19b)](_0x28e32d[_0x5a01ea(0x263)]['id'],_0x530b53);if(!_0x50c446)return _0x28e32d['editReply']('⚠️\x20Produkt\x20nicht\x20gefunden!');let _0x1960dd=_0x50c446[_0x5a01ea(0x24a)],_0x414c09=null;if(_0x50c446[_0x5a01ea(0x252)]){const _0x423dee=_0x50c446[_0x5a01ea(0x252)][_0x5a01ea(0x17a)](',')[0x0];_0x414c09=db['prepare']('\x0a\x20\x20\x20\x20\x20\x20\x20\x20SELECT\x20*\x20FROM\x20coupons\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20WHERE\x20code\x20=\x20?\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20AND\x20expires_at\x20>\x20CURRENT_TIMESTAMP\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20AND\x20uses\x20<\x20max_uses\x0a\x20\x20\x20\x20\x20\x20')[_0x5a01ea(0x19b)](_0x423dee);if(_0x414c09){const _0x7119c8=_0x50c446['price']*(_0x414c09[_0x5a01ea(0x15a)]/0x64);_0x1960dd=Math[_0x5a01ea(0x1f0)](0x0,_0x50c446[_0x5a01ea(0x24a)]-_0x7119c8),db[_0x5a01ea(0x287)](_0x5a01ea(0x21f))['run'](_0x28e32d[_0x5a01ea(0x263)]['id'],_0x414c09[_0x5a01ea(0x284)]);}}const _0x2bb284=db[_0x5a01ea(0x287)]('\x0a\x20\x20\x20\x20\x20\x20SELECT\x20coins\x20FROM\x20users\x20\x0a\x20\x20\x20\x20\x20\x20WHERE\x20user_id\x20=\x20?\x0a\x20\x20\x20\x20')[_0x5a01ea(0x19b)](_0x28e32d[_0x5a01ea(0x263)]['id'])||{'coins':0x0};if(_0x2bb284['coins']<_0x1960dd){const _0xb00e56=_0x1960dd-_0x2bb284[_0x5a01ea(0x133)];return _0x28e32d['editReply']('❌\x20Nicht\x20genug\x20Coins!\x20Du\x20benötigst\x20'+_0xb00e56+'\x20Coins\x20mehr.'+(_0x414c09?_0x5a01ea(0x18b):''));}const _0x19956a=db['transaction'](()=>{const _0x5eae7e=_0x5a01ea;db['prepare'](_0x5eae7e(0x25e))['run'](_0x1960dd,_0x28e32d[_0x5eae7e(0x263)]['id']);if(_0x50c446['delivery_type']===_0x5eae7e(0x10e)){const _0x2785a0=db[_0x5eae7e(0x287)]('\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20SELECT\x20key\x20FROM\x20product_keys\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20WHERE\x20product_id\x20=\x20?\x20AND\x20used\x20=\x200\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LIMIT\x201\x0a\x20\x20\x20\x20\x20\x20\x20\x20')[_0x5eae7e(0x19b)](_0x50c446['id']);if(!_0x2785a0)throw new Error(_0x5eae7e(0x238));db[_0x5eae7e(0x287)](_0x5eae7e(0x21a))[_0x5eae7e(0x124)](_0x28e32d[_0x5eae7e(0x263)]['id'],_0x2785a0[_0x5eae7e(0x144)]);}_0x50c446[_0x5eae7e(0x135)]==='FILE'&&db[_0x5eae7e(0x287)](_0x5eae7e(0x18a))[_0x5eae7e(0x124)](_0x28e32d[_0x5eae7e(0x263)]['id'],_0x50c446['id']);});_0x19956a();const _0x4c5aa4=new EmbedBuilder()['setTitle'](_0x5a01ea(0x118)+_0x50c446[_0x5a01ea(0x11c)]+_0x5a01ea(0x262))[_0x5a01ea(0x13a)]([_0x50c446[_0x5a01ea(0x22d)],_0x414c09&&_0x5a01ea(0x14f)+_0x414c09[_0x5a01ea(0x15a)]+_0x5a01ea(0x23f),'💳\x20**Bezahlter\x20Betrag:**\x20'+_0x1960dd+_0x5a01ea(0x170)][_0x5a01ea(0x258)](Boolean)['join']('\x0a\x0a'))[_0x5a01ea(0x249)]({'name':'Bestellnummer','value':'#'+_0x515435['randomBytes'](0x4)[_0x5a01ea(0x1d1)](_0x5a01ea(0x1ee))['toUpperCase'](),'inline':!![]},{'name':_0x5a01ea(0x1cb),'value':_0x50c446[_0x5a01ea(0x135)]===_0x5a01ea(0x10e)?_0x5a01ea(0x1cf):'📁\x20Direktdownload','inline':!![]})[_0x5a01ea(0x19d)](_0x458846[_0x5a01ea(0x27f)]['DEFAULT_COLOR'])['setThumbnail'](_0x50c446[_0x5a01ea(0x1d6)])[_0x5a01ea(0x114)]({'text':_0x5a01ea(0x282)}),_0x45b87a=new ActionRowBuilder()['addComponents'](_0x50c446['delivery_type']===_0x5a01ea(0x289)?new ButtonBuilder()['setLabel'](_0x5a01ea(0x1c5))[_0x5a01ea(0x1ae)](_0x50c446[_0x5a01ea(0x17d)])[_0x5a01ea(0x1a0)](ButtonStyle[_0x5a01ea(0x1a7)]):new ButtonBuilder()[_0x5a01ea(0x26f)](_0x5a01ea(0x1e5)+_0x50c446['id'])[_0x5a01ea(0x196)]('Key\x20anzeigen')['setStyle'](ButtonStyle[_0x5a01ea(0x21e)])[_0x5a01ea(0x261)]('🔑'));await _0x28e32d['user']['send']({'embeds':[_0x4c5aa4],'components':[_0x45b87a]}),await _0x28e32d[_0x5a01ea(0x1d0)]({'content':'✅\x20Kauf\x20erfolgreich!\x20Die\x20Lieferdetails\x20wurden\x20dir\x20per\x20DM\x20gesendet.'});}catch(_0x457a6e){console[_0x5a01ea(0x18d)](_0x5a01ea(0x16b),_0x457a6e);const _0xb2ba46={'KEYS_EXHAUSTED':_0x5a01ea(0x1f7)}[_0x457a6e[_0x5a01ea(0x266)]]||_0x5a01ea(0x1c6);await _0x28e32d[_0x5a01ea(0x1d0)](_0xb2ba46);}}),client['on'](_0x32cafc(0x18f),async _0xfa45f4=>{const _0x3613dc=_0x32cafc;if(!_0xfa45f4[_0x3613dc(0x1f4)]()||!_0xfa45f4[_0x3613dc(0x272)][_0x3613dc(0x149)](_0x3613dc(0x1e5)))return;const _0xaa0ebf=_0xfa45f4[_0x3613dc(0x272)][_0x3613dc(0x17a)]('_')[0x1],_0x2d03b5=db[_0x3613dc(0x287)](_0x3613dc(0x274))[_0x3613dc(0x19b)](_0xfa45f4[_0x3613dc(0x263)]['id'],_0xaa0ebf);_0x2d03b5?await _0xfa45f4['reply']({'content':_0x3613dc(0x157)+_0x2d03b5[_0x3613dc(0x144)]+'||','ephemeral':!![]}):await _0xfa45f4['reply']({'content':_0x3613dc(0x283),'ephemeral':!![]});}),client['on'](_0x32cafc(0x18f),async _0x3f0eb9=>{const _0x31aa8b=_0x32cafc;if(_0x3f0eb9[_0x31aa8b(0x20f)]===_0x31aa8b(0x134)){if(!_0x3f0eb9[_0x31aa8b(0x11f)]['has']('Administrator'))return _0x3f0eb9['reply']({'content':_0x31aa8b(0x126),'ephemeral':!![]});const _0x3c32e5=_0x3f0eb9[_0x31aa8b(0x119)][_0x31aa8b(0x16e)](_0x31aa8b(0x11c)),_0x449a91=_0x3f0eb9[_0x31aa8b(0x119)][_0x31aa8b(0x165)](_0x31aa8b(0x24a)),_0x4ba803=_0x3f0eb9['options']['getString'](_0x31aa8b(0x22d)),_0x33a84c=_0x3f0eb9[_0x31aa8b(0x119)][_0x31aa8b(0x16e)]('image'),_0x26e172=_0x3f0eb9['options'][_0x31aa8b(0x16e)]('delivery_type'),_0x5e8e05=_0x3f0eb9[_0x31aa8b(0x119)][_0x31aa8b(0x16e)](_0x31aa8b(0x17d));try{const _0x5480d7=db[_0x31aa8b(0x287)](_0x31aa8b(0x26e))[_0x31aa8b(0x124)](_0x3c32e5,_0x449a91,_0x4ba803,_0x33a84c,_0x26e172,_0x5e8e05);if(_0x26e172==='KEY'){const _0x594236=0xa,_0x35d96f=db[_0x31aa8b(0x287)]('\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20INSERT\x20INTO\x20product_keys\x20(key,\x20product_id)\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20VALUES\x20(?,\x20?)\x0a\x20\x20\x20\x20\x20\x20\x20\x20');for(let _0x38ca6e=0x0;_0x38ca6e<_0x594236;_0x38ca6e++){const _0x1620ea=generateProductKey(_0x5e8e05);_0x35d96f[_0x31aa8b(0x124)](_0x1620ea,_0x5480d7[_0x31aa8b(0x10b)]);}}const _0x7aac9d=new EmbedBuilder()['setTitle']('🎉\x20Neues\x20Produkt\x20erstellt')['addFields']({'name':_0x31aa8b(0x1de),'value':_0x3c32e5,'inline':!![]},{'name':_0x31aa8b(0x235),'value':_0x449a91+_0x31aa8b(0x170),'inline':!![]},{'name':_0x31aa8b(0x24b),'value':_0x26e172,'inline':!![]},{'name':'ID','value':'#'+_0x5480d7[_0x31aa8b(0x10b)],'inline':!![]})[_0x31aa8b(0x16c)](_0x33a84c)[_0x31aa8b(0x19d)](_0x458846['EMBEDS'][_0x31aa8b(0x1be)]);await _0x3f0eb9['reply']({'embeds':[_0x7aac9d],'ephemeral':!![]});}catch(_0x399dd7){console[_0x31aa8b(0x18d)](_0x31aa8b(0x123),_0x399dd7),await _0x3f0eb9[_0x31aa8b(0x1fb)]({'content':_0x31aa8b(0x1b6),'ephemeral':!![]});}}}),client['on'](_0x32cafc(0x18f),async _0x54f3c6=>{const _0x41f8f3=_0x32cafc;if(_0x54f3c6['commandName']===_0x41f8f3(0x202)){if(!_0x54f3c6['memberPermissions']['has'](_0x41f8f3(0x26c)))return _0x54f3c6[_0x41f8f3(0x1fb)]({'content':_0x41f8f3(0x153),'ephemeral':!![]});const _0x3d25ef=_0x54f3c6[_0x41f8f3(0x119)][_0x41f8f3(0x165)]('discount'),_0x1377c7=_0x54f3c6[_0x41f8f3(0x119)][_0x41f8f3(0x16e)](_0x41f8f3(0x195))||_0x41f8f3(0x22e),_0x4da528=_0x54f3c6['options'][_0x41f8f3(0x165)](_0x41f8f3(0x23e)),_0x195a1d=_0x54f3c6[_0x41f8f3(0x119)][_0x41f8f3(0x165)](_0x41f8f3(0x10c)),_0xd4f5c7=generateCouponCode(),_0x4c8676=new Date(Date[_0x41f8f3(0x14d)]()+_0x4da528*0x36ee80);db[_0x41f8f3(0x287)](_0x41f8f3(0x256))[_0x41f8f3(0x124)](_0xd4f5c7,_0x3d25ef,_0x1377c7,_0x4c8676[_0x41f8f3(0x214)](),_0x195a1d);const _0x575f6d=new EmbedBuilder()[_0x41f8f3(0x1bd)](_0x41f8f3(0x22a))['addFields']({'name':_0x41f8f3(0x181),'value':'`'+_0xd4f5c7+'`'},{'name':_0x41f8f3(0x273),'value':_0x3d25ef+'%','inline':!![]},{'name':_0x41f8f3(0x217),'value':_0x1377c7==='all'?_0x41f8f3(0x247):_0x1377c7,'inline':!![]},{'name':_0x41f8f3(0x168),'value':_0x41f8f3(0x109)+Math[_0x41f8f3(0x208)](_0x4c8676[_0x41f8f3(0x27c)]()/0x3e8)+_0x41f8f3(0x17f),'inline':!![]});await _0x54f3c6['reply']({'embeds':[_0x575f6d],'ephemeral':!![]});}}),client['on']('interactionCreate',async _0x30816f=>{const _0x4b6bfd=_0x32cafc;if(_0x30816f['commandName']===_0x4b6bfd(0x11d)){const _0x22ba41=_0x30816f['options'][_0x4b6bfd(0x165)](_0x4b6bfd(0x245)),_0x221143=_0x30816f[_0x4b6bfd(0x119)][_0x4b6bfd(0x165)](_0x4b6bfd(0x267)),_0x46a17c=_0x30816f[_0x4b6bfd(0x119)]['getString'](_0x4b6bfd(0x234)),_0x445443=db[_0x4b6bfd(0x287)](_0x4b6bfd(0x1b7))[_0x4b6bfd(0x19b)](_0x22ba41,_0x30816f[_0x4b6bfd(0x263)]['id']);if(!_0x445443)return _0x30816f[_0x4b6bfd(0x1fb)]({'content':_0x4b6bfd(0x16f),'ephemeral':!![]});db[_0x4b6bfd(0x287)](_0x4b6bfd(0x27e))[_0x4b6bfd(0x124)](_0x30816f[_0x4b6bfd(0x263)]['id'],_0x22ba41,_0x221143,_0x46a17c),await _0x30816f['reply']({'content':_0x4b6bfd(0x288),'ephemeral':!![]});}}),client['on'](_0x32cafc(0x18f),async _0x13150c=>{const _0x1ecdcd=_0x32cafc;if(_0x13150c[_0x1ecdcd(0x20f)]===_0x1ecdcd(0x1ac)){const _0x3c0d38=_0x13150c[_0x1ecdcd(0x119)][_0x1ecdcd(0x131)](_0x1ecdcd(0x263))||_0x13150c[_0x1ecdcd(0x263)],_0x2162cc=db[_0x1ecdcd(0x287)](_0x1ecdcd(0x1fa))['get'](_0x3c0d38['id'])?.[_0x1ecdcd(0x133)]||0x0,_0xeef56c=new EmbedBuilder()['setTitle'](_0x1ecdcd(0x1d8)+_0x3c0d38['username'])[_0x1ecdcd(0x13a)](_0x2162cc+_0x1ecdcd(0x170))[_0x1ecdcd(0x19d)](_0x458846[_0x1ecdcd(0x27f)]['DEFAULT_COLOR'])['setThumbnail'](_0x3c0d38[_0x1ecdcd(0x1e6)]());await _0x13150c['reply']({'embeds':[_0xeef56c]});}});const activeGiveaways=new Map();client['on']('interactionCreate',async _0x16b7e5=>{const _0x563f4b=_0x32cafc;if(_0x16b7e5[_0x563f4b(0x20f)]==='giveaway'){if(!_0x16b7e5[_0x563f4b(0x11f)]['has'](_0x563f4b(0x26c)))return _0x16b7e5[_0x563f4b(0x1fb)]({'content':_0x563f4b(0x126),'ephemeral':!![]});const _0x1b1154=_0x16b7e5[_0x563f4b(0x119)][_0x563f4b(0x165)](_0x563f4b(0x23e)),_0x4a9952=_0x16b7e5[_0x563f4b(0x119)][_0x563f4b(0x165)]('coins'),_0x45cc16=_0x16b7e5[_0x563f4b(0x119)]['getInteger'](_0x563f4b(0x13c)),_0x960508=_0x515435['randomBytes'](0x8)[_0x563f4b(0x1d1)](_0x563f4b(0x1ee)),_0x4e8232=Date[_0x563f4b(0x14d)]()+_0x1b1154*0xea60,_0x24e4f1=new EmbedBuilder()['setTitle'](_0x563f4b(0x151))['setDescription']('**Preis:**\x20'+_0x4a9952+'\x20Coins\x0a'+(_0x563f4b(0x184)+_0x45cc16+'\x0a')+(_0x563f4b(0x216)+Math[_0x563f4b(0x208)](_0x4e8232/0x3e8)+_0x563f4b(0x17f)))[_0x563f4b(0x19d)](_0x458846[_0x563f4b(0x27f)]['DEFAULT_COLOR']),_0x326997=new ButtonBuilder()['setCustomId'](_0x563f4b(0x23c)+_0x960508)[_0x563f4b(0x196)](_0x563f4b(0x1da))['setStyle'](ButtonStyle[_0x563f4b(0x21e)]),_0x2091f0=new ActionRowBuilder()[_0x563f4b(0x1a6)](_0x326997),_0x5deb20=client[_0x563f4b(0x175)]['cache'][_0x563f4b(0x19b)](_0x458846['CHANNELS'][_0x563f4b(0x177)]),_0x56a9af=await _0x5deb20[_0x563f4b(0x13b)]({'embeds':[_0x24e4f1],'components':[_0x2091f0]});activeGiveaways['set'](_0x960508,{'endTime':_0x4e8232,'coins':_0x4a9952,'winners':_0x45cc16,'participants':[],'messageId':_0x56a9af['id']}),setTimeout(async()=>{const _0x1de234=_0x563f4b,_0x4cdd2b=activeGiveaways['get'](_0x960508);if(!_0x4cdd2b)return;const _0x3c5d71=_0x4cdd2b[_0x1de234(0x140)][_0x1de234(0x192)](()=>Math[_0x1de234(0x117)]()-0.5)['slice'](0x0,_0x4cdd2b[_0x1de234(0x13c)]);_0x3c5d71[_0x1de234(0x1d4)](_0x511b34=>{const _0x3de985=_0x1de234;db['prepare'](_0x3de985(0x1c3))['run'](_0x511b34,_0x511b34,_0x4cdd2b[_0x3de985(0x133)]);});const _0x4de5b3=new EmbedBuilder()[_0x1de234(0x1bd)](_0x1de234(0x1ea))['setDescription'](_0x3c5d71[_0x1de234(0x237)]>0x0?_0x1de234(0x1a5)+_0x3c5d71[_0x1de234(0x15f)](_0x181390=>'<@'+_0x181390+'>')[_0x1de234(0x1cd)]('\x20')+_0x1de234(0x26d)+_0x4cdd2b['coins']+_0x1de234(0x193):_0x1de234(0x197))[_0x1de234(0x19d)](_0x3c5d71['length']>0x0?0xff00:0xff0000);await _0x16b7e5[_0x1de234(0x1ba)]({'embeds':[_0x4de5b3]}),activeGiveaways[_0x1de234(0x14a)](_0x960508);},_0x1b1154*0xea60);}}),client['on'](_0x32cafc(0x18f),async _0xcb5329=>{const _0x236413=_0x32cafc;if(!_0xcb5329[_0x236413(0x1f4)]()||!_0xcb5329['customId']['startsWith']('giveaway_'))return;const _0x2153ca=_0xcb5329['customId']['split']('_')[0x1],_0x4b1b2e=activeGiveaways[_0x236413(0x19b)](_0x2153ca);if(!_0x4b1b2e||Date[_0x236413(0x14d)]()>_0x4b1b2e['endTime'])return _0xcb5329['reply']({'content':_0x236413(0x260),'ephemeral':!![]});if(_0x4b1b2e[_0x236413(0x140)][_0x236413(0x280)](_0xcb5329['user']['id']))return _0xcb5329[_0x236413(0x1fb)]({'content':'Du\x20bist\x20bereits\x20dabei!','ephemeral':!![]});_0x4b1b2e[_0x236413(0x140)][_0x236413(0x1f2)](_0xcb5329['user']['id']),await _0xcb5329[_0x236413(0x1fb)]({'content':_0x236413(0x20d),'ephemeral':!![]});}),client['on'](_0x32cafc(0x18f),async _0x20fc84=>{const _0x2c6662=_0x32cafc;if(_0x20fc84[_0x2c6662(0x20f)]===_0x2c6662(0x164)){const _0xf9217e=_0x20fc84[_0x2c6662(0x119)][_0x2c6662(0x158)]();switch(_0xf9217e){case _0x2c6662(0x1df):const _0x43ea5a=db[_0x2c6662(0x287)](_0x2c6662(0x113))[_0x2c6662(0x22e)](_0x20fc84[_0x2c6662(0x263)]['id']),_0x140e46=new EmbedBuilder()[_0x2c6662(0x1bd)](_0x2c6662(0x145))['setDescription'](_0x43ea5a[_0x2c6662(0x15f)](_0x417b30=>'#'+_0x417b30['id']+'\x20-\x20'+_0x417b30['name'])[_0x2c6662(0x1cd)]('\x0a')||_0x2c6662(0x25f))[_0x2c6662(0x19d)](_0x458846[_0x2c6662(0x27f)]['DEFAULT_COLOR']);await _0x20fc84[_0x2c6662(0x1fb)]({'embeds':[_0x140e46],'ephemeral':!![]});break;case'add':const _0x2753a2=_0x20fc84[_0x2c6662(0x119)]['getInteger'](_0x2c6662(0x245));db[_0x2c6662(0x287)](_0x2c6662(0x13d))[_0x2c6662(0x124)](_0x20fc84[_0x2c6662(0x263)]['id'],_0x2753a2),await _0x20fc84[_0x2c6662(0x1fb)]({'content':_0x2c6662(0x120),'ephemeral':!![]});break;case _0x2c6662(0x285):const _0x4ddde4=_0x20fc84[_0x2c6662(0x119)][_0x2c6662(0x165)](_0x2c6662(0x245));db[_0x2c6662(0x287)](_0x2c6662(0x191))[_0x2c6662(0x124)](_0x20fc84[_0x2c6662(0x263)]['id'],_0x4ddde4),await _0x20fc84['reply']({'content':_0x2c6662(0x236),'ephemeral':!![]});break;}}}),client[_0x32cafc(0x23d)](_0x458846['BOT_TOKEN']);
+import { Client, GatewayIntentBits, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, StringSelectMenuBuilder} from 'discord.js';
+import { SlashCommandBuilder } from '@discordjs/builders';
+import sqlite from 'better-sqlite3';
+import path from 'path';
+import crypto from 'crypto';
+import { ComponentType } from 'discord.js';
+import { MessageFlags } from 'discord.js';
+import { ModalBuilder, TextInputBuilder, TextInputStyle } from 'discord.js';
+import config from './config.js';
+
+
+
+
+
+// ██████╗  ██████╗ ████████╗ ██████╗ 
+// ██╔══██╗██╔═══██╗╚══██╔══╝██╔═══██╗
+// ██║  ██║██║   ██║   ██║   ██║   ██║
+// ██║  ██║██║   ██║   ██║   ██║   ██║
+// ██████╔╝╚██████╔╝   ██║   ╚██████╔╝
+// ╚═════╝  ╚═════╝    ╚═╝    ╚═════╝ 
+// Datenbank Setup
+const db = sqlite(path.join(process.cwd(), config.DATABASE.FILENAME));
+db.pragma(config.DATABASE.PRAGMA);
+
+// Tabellenstruktur
+db.prepare(`
+  CREATE TABLE IF NOT EXISTS users (
+    user_id TEXT PRIMARY KEY,
+    coins INTEGER DEFAULT 0
+  )`).run();
+
+db.prepare(`
+  CREATE TABLE IF NOT EXISTS products (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    price INTEGER,
+    description TEXT,
+    image_url TEXT,
+    delivery_type TEXT CHECK(delivery_type IN ('FILE', 'KEY')),
+    delivery_content TEXT
+  )`).run();
+
+// 🔄 Datenbank Updates
+db.prepare(`
+  CREATE TABLE IF NOT EXISTS pending_payments (
+    payment_id TEXT PRIMARY KEY,
+    user_id TEXT,
+    product_id INTEGER,
+    paysafecode TEXT,
+    amount INTEGER,
+    status TEXT DEFAULT 'pending',
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+  )`).run();
+
+db.prepare(`
+  CREATE TABLE IF NOT EXISTS config (
+    guild_id TEXT PRIMARY KEY,
+    payment_log_channel TEXT
+  )`).run();
+
+
+db.prepare(`
+  CREATE TABLE IF NOT EXISTS product_keys (
+    key TEXT PRIMARY KEY,
+    product_id INTEGER,
+    user_id TEXT,
+    used BOOLEAN DEFAULT 0,
+    FOREIGN KEY(product_id) REFERENCES products(id)
+  )`).run();
+
+// NEUE TABELLEN ↓↓↓
+db.prepare(`
+  CREATE TABLE IF NOT EXISTS coupons (
+    code TEXT PRIMARY KEY,
+    discount_percent INTEGER,
+    product_ids TEXT,
+    expires_at DATETIME,
+    max_uses INTEGER DEFAULT 1,
+    uses INTEGER DEFAULT 0
+  )`).run();
+
+db.prepare(`
+  CREATE TABLE IF NOT EXISTS product_ratings (
+    user_id TEXT,
+    product_id INTEGER,
+    rating INTEGER CHECK(rating BETWEEN 1 AND 5),
+    review TEXT,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (user_id, product_id)
+  )`).run();
+
+db.prepare(`
+  CREATE TABLE IF NOT EXISTS wishlist (
+    user_id TEXT,
+    product_id INTEGER,
+    PRIMARY KEY (user_id, product_id)
+  )`).run();
+
+  db.prepare(`
+    CREATE TABLE IF NOT EXISTS file_purchases (
+      user_id TEXT,
+      product_id INTEGER,
+      purchase_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+      PRIMARY KEY (user_id, product_id)
+    )`).run();
+
+    db.prepare(`
+      CREATE TABLE IF NOT EXISTS coupons (
+        code TEXT PRIMARY KEY,
+        discount_percent INTEGER CHECK(discount_percent BETWEEN 1 AND 100),
+        product_ids TEXT DEFAULT 'all',
+        expires_at DATETIME,
+        max_uses INTEGER DEFAULT 1,
+        uses INTEGER DEFAULT 0
+      )`).run();
+    
+    db.prepare(`
+      CREATE TABLE IF NOT EXISTS user_coupons (
+        user_id TEXT,
+        coupon_code TEXT,
+        used BOOLEAN DEFAULT 0,
+        PRIMARY KEY (user_id, coupon_code),
+        FOREIGN KEY(coupon_code) REFERENCES coupons(code)
+      )`).run();
+
+// 🔧 Hilfsfunktionen
+function generateProductKey(prefix = config.ECONOMY.KEY_PREFIX) {
+  const randomPart = crypto.randomBytes(8).toString('hex').toUpperCase();
+  return `${prefix}-${randomPart}`;
+}
+
+function generateCouponCode() {
+  return crypto.randomBytes(config.ECONOMY.COUPON_LENGTH/2).toString('hex').toUpperCase();
+}
+
+// 🆕 NEUE LEADERBOARD-FUNKTION HIER EINFÜGEN
+function getLeaderboard(limit = 10) {
+  return db.prepare(`
+    SELECT user_id, coins 
+    FROM users 
+    ORDER BY coins DESC 
+    LIMIT ?
+  `).all(limit);
+}
+
+// ██████╗ ██████╗  ██████╗ ████████╗
+// ██╔══██╗██╔══██╗██╔═══██╗╚══██╔══╝
+// ██║  ██║██████╔╝██║   ██║   ██║   
+// ██║  ██║██╔══██╗██║   ██║   ██║   
+// ██████╔╝██║  ██║╚██████╔╝   ██║   
+// ╚═════╝ ╚═╝  ╚═╝ ╚═════╝    ╚═╝   
+const client = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.DirectMessages,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent
+  ]
+});
+
+// 🎮 Slash Commands
+const commands = [
+  // Basis-Commands
+  new SlashCommandBuilder()
+    .setName('shop')
+    .setDescription('Zeigt alle verfügbaren Produkte an'),
+  
+// In den Commands einfügen
+new SlashCommandBuilder()
+  .setName('redeem')
+  .setDescription('Rabattcode einlösen')
+  .addStringOption(option =>
+    option.setName('code').setDescription('Coupon-Code').setRequired(true)),
+
+    new SlashCommandBuilder()
+    .setName('paywithpaysafe')
+    .setDescription('Zahle mit Paysafecard')
+    .addStringOption(option =>
+      option.setName('code')
+        .setDescription('Dein 16-stelliger Paysafecode')
+        .setRequired(true)
+        .setMinLength(16)
+        .setMaxLength(16))
+    .addIntegerOption(option =>
+      option.setName('product_id')
+        .setDescription('Produkt-ID aus dem Shop')
+        .setRequired(true)),
+
+  new SlashCommandBuilder()
+    .setName('setpaymentchannel')
+    .setDescription('Setze den Payment-Log Channel (Admin)')
+    .addChannelOption(option =>
+      option.setName('channel')
+        .setDescription('Channel für Zahlungslogs')
+        .setRequired(true)),
+
+
+// Balance Command
+new SlashCommandBuilder()
+.setName('balance')
+.setDescription('Zeige deine Coins an')
+.addUserOption(option =>
+  option.setName('user')
+    .setDescription('Anderer Benutzer')),
+
+// Leaderboard Command
+new SlashCommandBuilder()
+ .setName('leaderboard')
+ .setDescription('Zeigt die Top 10 der reichsten User')
+ .addBooleanOption(option =>
+  option.setName('global')
+    .setDescription('Globales Leaderboard anzeigen? (Admin-only)')
+),
+
+
+// Giveaway Command
+new SlashCommandBuilder()
+.setName('giveaway')
+.setDescription('Starte ein Giveaway')
+.addIntegerOption(option =>
+  option.setName('duration').setDescription('Dauer in Minuten').setRequired(true))
+.addIntegerOption(option =>
+  option.setName('coins').setDescription('Coin-Menge').setRequired(true))
+.addIntegerOption(option =>
+  option.setName('winners').setDescription('Anzahl Gewinner').setRequired(true)),
+
+  // Admin-Commands
+  new SlashCommandBuilder()
+    .setName('createproduct')
+    .setDescription('Erstellt ein neues Produkt (Admin)')
+    .addStringOption(option =>
+      option.setName('name').setDescription('Produktname').setRequired(true))
+    .addIntegerOption(option =>
+      option.setName('price').setDescription('Preis in Coins').setRequired(true))
+    .addStringOption(option =>
+      option.setName('description').setDescription('Produktbeschreibung').setRequired(true))
+    .addStringOption(option =>
+      option.setName('image').setDescription('Bild-URL').setRequired(true))
+    .addStringOption(option =>
+      option.setName('delivery_type').setDescription('Lieferart')
+        .addChoices({ name: 'Datei', value: 'FILE' }, { name: 'Key', value: 'KEY' })
+        .setRequired(true))
+    .addStringOption(option =>
+      option.setName('delivery_content').setDescription('Datei-URL/Key-Präfix').setRequired(true)),
+  
+  new SlashCommandBuilder()
+    .setName('addcoins')
+    .setDescription('Fügt Coins hinzu (Admin)')
+    .addUserOption(option =>
+      option.setName('user').setDescription('Benutzer').setRequired(true))
+    .addIntegerOption(option =>
+      option.setName('amount').setDescription('Menge').setRequired(true)),
+  
+  // CORRECTED CreateCoupon Command
+  new SlashCommandBuilder()
+    .setName('createcoupon')
+    .setDescription('Erstellt Rabattcode (Admin)')
+    .addIntegerOption(option =>
+      option.setName('discount').setDescription('Rabatt in %').setRequired(true))
+    .addIntegerOption(option =>
+      option.setName('duration').setDescription('Gültigkeit in Stunden').setRequired(true))
+    .addIntegerOption(option =>
+      option.setName('uses').setDescription('Max. Verwendungen').setRequired(true))
+    .addStringOption(option =>
+      option.setName('products').setDescription('Kommagetrennte IDs (leer=alle)')),
+  
+  
+  new SlashCommandBuilder()
+    .setName('rateproduct')
+    .setDescription('Bewerte ein Produkt')
+    .addIntegerOption(option =>
+      option.setName('product_id').setDescription('Produkt-ID').setRequired(true))
+    .addIntegerOption(option =>
+      option.setName('rating').setDescription('1-5 Sterne').setRequired(true).setMinValue(1).setMaxValue(5))
+    .addStringOption(option =>
+      option.setName('review').setDescription('Bewertungstext')),
+  
+  new SlashCommandBuilder()
+    .setName('wishlist')
+    .setDescription('Wunschliste verwalten')
+    .addSubcommand(sub =>
+      sub.setName('show').setDescription('Zeige deine Wunschliste'))
+    .addSubcommand(sub =>
+      sub.setName('add').setDescription('Produkt hinzufügen')
+        .addIntegerOption(option =>
+          option.setName('product_id').setDescription('Produkt-ID').setRequired(true)))
+    .addSubcommand(sub =>
+      sub.setName('remove').setDescription('Produkt entfernen')
+        .addIntegerOption(option =>
+          option.setName('product_id').setDescription('Produkt-ID').setRequired(true)))
+].map(command => command.toJSON());
+
+// ⚙️ Event Handler
+client.on('ready', async () => {
+  console.log(`✅ Bot eingeloggt als ${client.user.tag}`);
+  await client.application.commands.set(commands);
+});
+
+// 🛍️ SHOP COMMAND MIT FUNKTIONIERENDEM SELECT MENU
+client.on('interactionCreate', async interaction => {
+  if (interaction.commandName !== 'shop') return;
+
+  // Produkte aus der Datenbank holen
+  const products = db.prepare(`
+    SELECT p.*, 
+      AVG(r.rating) as avg_rating,
+      COUNT(r.rating) as total_ratings
+    FROM products p
+    LEFT JOIN product_ratings r ON p.id = r.product_id
+    GROUP BY p.id
+  `).all();
+
+  if (products.length === 0) {
+    return interaction.reply({ 
+      content: '⚠️ Der Shop ist aktuell leer!', 
+      ephemeral: true 
+    });
+  }
+
+  // Select Menu erstellen
+  const selectMenu = new StringSelectMenuBuilder()
+    .setCustomId('shop_select')
+    .setPlaceholder('Wähle ein Produkt aus...')
+    .addOptions(
+      products.map(product => ({
+        label: product.name.substring(0, 25),
+        description: `${product.price} Coins | ${product.description.substring(0, 50)}...`,
+        value: product.id.toString()
+      }))
+    );
+
+  // Action Row mit dem Select Menu
+  const actionRow = new ActionRowBuilder().addComponents(selectMenu);
+
+
+  // Initiales Embed
+  const embed = new EmbedBuilder()
+    .setTitle('🎮 Game Shop')
+    .setDescription('Wähle ein Produkt aus dem Menü für mehr Details')
+    .setColor(config.EMBEDS.DEFAULT_COLOR)
+    .setImage(config.EMBEDS.SHOP_BANNER)
+
+
+    await interaction.reply({ 
+      embeds: [embed], 
+      components: [actionRow]  // ✅ Correct variable name
+    });
+});
+
+// 🔧 ADMIN: ADD COINS
+client.on('interactionCreate', async interaction => {
+  if (interaction.commandName === 'addcoins') {
+    // Berechtigung prüfen
+    if (!interaction.memberPermissions.has('Administrator')) {
+      return interaction.reply({ content: '🔒 Admin-Berechtigung benötigt!', ephemeral: true });
+    }
+
+    const user = interaction.options.getUser('user');
+    const amount = interaction.options.getInteger('amount');
+
+    // Coins aktualisieren
+    db.prepare(`
+      INSERT INTO users (user_id, coins)
+      VALUES (?, COALESCE((SELECT coins FROM users WHERE user_id = ?), 0) + ?)
+      ON CONFLICT(user_id) DO UPDATE SET coins = excluded.coins
+    `).run(user.id, user.id, amount);
+
+    // Bestätigung senden
+    const embed = new EmbedBuilder()
+      .setTitle('✅ Coins hinzugefügt')
+      .setDescription(`${user.tag} hat ${amount} Coins erhalten!`)
+      .addFields({
+        name: 'Neuer Kontostand',
+        value: `${db.prepare('SELECT coins FROM users WHERE user_id = ?').get(user.id)?.coins || 0} Coins`
+      })
+      .setColor(config.EMBEDS.DEFAULT_COLOR)
+
+    await interaction.reply({ embeds: [embed], ephemeral: true });
+  }
+});
+
+client.on('interactionCreate', async interaction => {
+  if (interaction.commandName === 'setpaymentchannel') {
+    // Berechtigung prüfen
+    if (!interaction.memberPermissions.has('Administrator')) {
+      return interaction.reply({ 
+        content: '🔒 Admin-Berechtigung benötigt!', 
+        ephemeral: true 
+      });
+    }
+
+    const channel = interaction.options.getChannel('channel');
+    
+    // Channel-Typ validieren
+    if (!channel.isTextBased()) {
+      return interaction.reply({
+        content: '❌ Der Channel muss ein Text-Channel sein!',
+        ephemeral: true
+      });
+    }
+
+    try {
+      // In Datenbank speichern
+      db.prepare(`
+        INSERT INTO config (guild_id, payment_log_channel)
+        VALUES (?, ?)
+        ON CONFLICT(guild_id) DO UPDATE SET
+          payment_log_channel = excluded.payment_log_channel
+      `).run(interaction.guildId, channel.id);
+
+      // Erfolgsmeldung
+      const embed = new EmbedBuilder()
+        .setTitle('✅ Payment-Channel gesetzt')
+        .setDescription(`Zahlungs-Logs werden jetzt in ${channel} gespeichert`)
+        .addFields({
+          name: 'Channel-ID',
+          value: channel.id,
+          inline: true
+        })
+        .setColor(config.EMBEDS.DEFAULT_COLOR)
+        .setTimestamp();
+
+      await interaction.reply({ embeds: [embed], ephemeral: true });
+
+    } catch (error) {
+      console.error('Fehler beim Setzen des Payment-Channels:', error);
+      await interaction.reply({
+        content: '❌ Ein Fehler ist beim Speichern aufgetreten!',
+        ephemeral: true
+      });
+    }
+  }
+});
+
+// 🖼️ KORRIGIERTER PRODUCT DETAIL HANDLER
+client.on('interactionCreate', async interaction => {
+  if (!interaction.isStringSelectMenu() || interaction.customId !== 'shop_select') return;
+
+  // Immediately acknowledge the interaction
+  try {
+    await interaction.deferUpdate();
+  } catch (error) {
+    console.error('Defer failed:', error);
+    return;
+  }
+
+  try {
+    const productId = parseInt(interaction.values[0]); // Klammer korrigiert
+    if (isNaN(productId)) { // Klammer korrigiert
+      console.error('Ungültige Produkt-ID:', interaction.values[0]);
+      return interaction.followUp({
+        content: '❌ Ungültige Produktauswahl!',
+        ephemeral: true
+      });
+    }
+
+
+    const product = db.prepare(`
+      SELECT p.*, 
+        AVG(r.rating) as avg_rating,
+        COUNT(r.rating) as total_ratings
+      FROM products p
+      LEFT JOIN product_ratings r ON p.id = r.product_id
+      WHERE p.id = ?
+    `).get(productId);
+
+    if (!product) {
+      return await interaction.followUp({
+        content: '❌ Product not found!',
+        flags: MessageFlags.Ephemeral
+      });
+    }
+
+
+    if (!interaction.message || interaction.message.deleted) {
+      return interaction.followUp({
+        content: '⚠️ Bitte shop-Befehl neu ausführen!',
+        ephemeral: true
+      });
+    }
+
+    const ratingStars = product.avg_rating 
+      ? '★'.repeat(Math.round(product.avg_rating)).padEnd(5, '☆')
+      : '☆☆☆☆☆';
+
+    const embed = new EmbedBuilder()
+      .setTitle(`🎮 ${product.name}`)
+      .setDescription(product.description)
+      .setColor(config.EMBEDS.DEFAULT_COLOR)
+      .setImage(product.image_url)
+      .addFields(
+        { name: 'Preis', value: `**${product.price} Coins**`, inline: true },
+        { name: 'Lieferart', value: product.delivery_type === 'FILE' ? '📁 Sofortdownload' : '🔑 Aktivierungscode', inline: true },
+        { name: 'Bewertungen', value: `${ratingStars} (${product.total_ratings})`, inline: true },
+        { name: 'Produkt-ID', value: `#${product.id}`, inline: true }
+      );
+
+      const buyRow = new ActionRowBuilder().addComponents(
+        new ButtonBuilder()
+          .setCustomId(`buy_${product.id}`)
+          .setLabel('Jetzt kaufen')
+          .setStyle(ButtonStyle.Success),
+        new ButtonBuilder()
+          .setCustomId(`paysafe_${product.id}`)
+          .setLabel('Mit Paysafe zahlen')
+          .setStyle(ButtonStyle.Primary)
+          .setEmoji('💳')
+      );
+  
+      await interaction.message.edit({
+        embeds: [embed],
+        components: [buyRow] // ✅ Korrekte ActionRow
+      });
+    
+  } catch (error) {
+    console.error('Fehler bei Produktauswahl:', error);
+    await interaction.followUp({
+      content: '❌ Fehler beim Laden des Produkts!',
+      flags: MessageFlags.Ephemeral
+    });
+  }
+});
+
+
+// 💳 PAYSAFE BUTTON HANDLER (Öffnet das Modal)
+client.on('interactionCreate', async interaction => {
+  if (!interaction.isButton() || !interaction.customId.startsWith('paysafe_')) return;
+
+  try {
+    const productId = interaction.customId.split('_')[1];
+    
+    // Produkt validieren
+    const product = db.prepare('SELECT * FROM products WHERE id = ?').get(productId);
+    if (!product) {
+      return interaction.reply({ 
+        content: '❌ Ungültiges Produkt!', 
+        ephemeral: true 
+      });
+    }
+
+    // Modal erstellen
+    const modal = new ModalBuilder()
+      .setCustomId(`paysafeModal_${productId}`)
+      .setTitle(`Zahlung für ${product.name}`);
+
+    const codeInput = new TextInputBuilder()
+      .setCustomId('paysafeCode')
+      .setLabel("16-stelliger Paysafecode")
+      .setStyle(TextInputStyle.Short)
+      .setMinLength(16)
+      .setMaxLength(16)
+      .setRequired(true)
+      .setPlaceholder('XXXX-XXXX-XXXX-XXXX');
+
+    const actionRow = new ActionRowBuilder().addComponents(codeInput);
+    modal.addComponents(actionRow);
+
+    // Direktes Anzeigen des Modals OHNE deferReply
+    await interaction.showModal(modal);
+    
+  } catch (error) {
+    console.error('Fehler beim Öffnen des Modals:', error);
+    
+    // Fallback-Antwort falls Modal nicht mehr gezeigt werden kann
+    if (!interaction.replied && !interaction.deferred) {
+      await interaction.reply({
+        content: '❌ Fehler beim Öffnen des Zahlungsformulars!',
+        ephemeral: true
+      });
+    }
+  }
+});
+
+// ✅ PAYSAFE MODAL SUBMIT HANDLER (Verarbeitung)
+client.on('interactionCreate', async interaction => {
+  if (!interaction.isModalSubmit() || !interaction.customId.startsWith('paysafeModal_')) return;
+
+  await interaction.deferReply({ ephemeral: true });
+  const productId = interaction.customId.split('_')[1];
+  const code = interaction.fields.getTextInputValue('paysafeCode');
+
+  try {
+    // Validierung des Produkts
+    const product = db.prepare('SELECT * FROM products WHERE id = ?').get(productId);
+    if (!product) return interaction.editReply('❌ Produkt nicht gefunden!');
+
+    // Code-Validierung
+    if (!/^\d{16}$/.test(code.replace(/\s/g, ''))) {
+      return interaction.editReply('❌ Ungültiger Paysafecode! Muss 16 Ziffern enthalten.');
+    }
+
+    // Payment-ID generieren
+    const paymentId = crypto.randomBytes(8).toString('hex').toUpperCase();
+
+    // Payment in DB speichern
+    db.prepare(`
+      INSERT INTO pending_payments 
+      (payment_id, user_id, product_id, paysafecode, amount)
+      VALUES (?, ?, ?, ?, ?)
+    `).run(paymentId, interaction.user.id, productId, code, product.price);
+
+    // Log-Channel finden
+    const config = db.prepare('SELECT payment_log_channel FROM config WHERE guild_id = ?')
+      .get(interaction.guildId);
+    
+    if (!config?.payment_log_channel) {
+      return interaction.editReply('❌ Payment-System nicht konfiguriert!');
+    }
+
+    const channel = interaction.guild.channels.cache.get(config.CHANNELS.PAYMENT_LOGS);
+    if (!channel?.isTextBased()) {
+      return interaction.editReply('❌ Log-Channel nicht gefunden!');
+    }
+
+    // Admin-Embed erstellen
+    const logEmbed = new EmbedBuilder()
+      .setTitle('💳 Neue Paysafecard-Zahlung')
+      .setColor(config.EMBEDS.DEFAULT_COLOR)
+      .addFields(
+        { name: 'Payment-ID', value: paymentId },
+        { name: 'Benutzer', value: `${interaction.user.tag} (${interaction.user.id})` },
+        { name: 'Produkt', value: `${product.name} (#${productId})` },
+        { name: 'Betrag', value: `${product.price} Coins` },
+        { name: 'Paysafecode', value: `||${code}||` }
+      )
+      .setThumbnail(interaction.user.displayAvatarURL())
+      .setTimestamp();
+
+    // Admin-Buttons
+    const buttons = new ActionRowBuilder().addComponents(
+      new ButtonBuilder()
+        .setCustomId(`payment_approve_${paymentId}`)
+        .setLabel('Bestätigen')
+        .setStyle(ButtonStyle.Success),
+      new ButtonBuilder()
+        .setCustomId(`payment_deny_${paymentId}`)
+        .setLabel('Ablehnen')
+        .setStyle(ButtonStyle.Danger)
+    );
+
+    // Log senden
+    await channel.send({ 
+      content: `<@&${config.ROLES.ADMIN}>`,
+      embeds: [logEmbed], 
+      components: [buttons] 
+    });
+
+    // Bestätigung an User
+    await interaction.editReply({
+      content: '✅ Zahlung erfolgreich eingereicht! Ein Admin wird sie bald überprüfen.',
+    });
+
+  } catch (error) {
+    console.error('Fehler bei Paysafe-Zahlung:', error);
+    await interaction.editReply({
+      content: '❌ Ein Fehler ist bei der Zahlungsverarbeitung aufgetreten!',
+    });
+  }
+});
+
+// 💳 PAYSAFE PAYMENT HANDLING
+client.on('interactionCreate', async interaction => {
+  if (interaction.commandName === 'paywithpaysafe') {
+    await interaction.deferReply({ ephemeral: true });
+    
+    const code = interaction.options.getString('code');
+    const productId = interaction.options.getInteger('product_id');
+    
+    // Produkt validieren
+    const product = db.prepare('SELECT * FROM products WHERE id = ?').get(productId);
+    if (!product) return interaction.editReply('❌ Ungültiges Produkt!');
+
+    // Payment-ID generieren
+    const paymentId = crypto.randomBytes(8).toString('hex').toUpperCase();
+
+    // Payment in DB speichern
+    db.prepare(`
+      INSERT INTO pending_payments 
+      (payment_id, user_id, product_id, paysafecode, amount)
+      VALUES (?, ?, ?, ?, ?)
+    `).run(paymentId, interaction.user.id, productId, code, product.price);
+
+    // Log-Channel finden
+    const config = db.prepare('SELECT payment_log_channel FROM config WHERE guild_id = ?')
+      .get(interaction.guildId);
+    if (!config?.payment_log_channel) {
+      return interaction.editReply('❌ Payment-System nicht konfiguriert!');
+    }
+
+    const channel = interaction.guild.channels.cache.get(config.CHANNELS.PAYMENT_LOGS);
+    if (!channel) {
+      return interaction.editReply('❌ Log-Channel nicht gefunden!');
+    }
+
+    // Admin-Embed erstellen
+    const logEmbed = new EmbedBuilder()
+      .setTitle('💳 Neue Paysafecard-Zahlung')
+      .setColor(config.EMBEDS.DEFAULT_COLOR)
+      .addFields(
+        { name: 'Payment-ID', value: paymentId },
+        { name: 'Benutzer', value: `${interaction.user.tag} (${interaction.user.id})` },
+        { name: 'Produkt', value: `${product.name} (#${productId})` },
+        { name: 'Betrag', value: `${product.price} Coins` },
+        { name: 'Paysafecode', value: `||${code}||` }
+      )
+      .setTimestamp();
+
+    const buttons = new ActionRowBuilder().addComponents(
+      new ButtonBuilder()
+        .setCustomId(`payment_approve_${paymentId}`)
+        .setLabel('Bestätigen')
+        .setStyle(ButtonStyle.Success),
+      new ButtonBuilder()
+        .setCustomId(`payment_deny_${paymentId}`)
+        .setLabel('Ablehnen')
+        .setStyle(ButtonStyle.Danger)
+    );
+
+    await channel.send({ embeds: [logEmbed], components: [buttons] });
+    await interaction.editReply('✅ Zahlung eingereicht! Ein Admin wird diese bald überprüfen.');
+  }
+});
+
+
+
+client.on('interactionCreate', async interaction => {
+  if (!interaction.isButton() || !interaction.customId.startsWith('payment_')) return;
+  
+  const [action, paymentId] = interaction.customId.split('_').slice(1);
+  if (!['approve', 'deny'].includes(action)) return;
+
+  if (!interaction.memberPermissions.has('Administrator')) {
+      return interaction.reply({ content: '❌ Admin-Berechtigung benötigt!', ephemeral: true });
+  }
+
+  const payment = db.prepare(`SELECT * FROM pending_payments WHERE payment_id = ? AND status = 'pending'`).get(paymentId);
+  if (!payment) {
+      return interaction.reply({ content: '❌ Zahlung nicht gefunden oder bereits bearbeitet!', ephemeral: true });
+  }
+
+  try {
+      db.prepare(`UPDATE pending_payments SET status = ? WHERE payment_id = ?`).run('approved', paymentId);
+      
+      const product = db.prepare('SELECT * FROM products WHERE id = ?').get(payment.product_id);
+      if (!product) throw new Error('PRODUCT_NOT_FOUND');
+
+      const user = await client.users.fetch(payment.user_id);
+      if (!user) throw new Error('USER_NOT_FOUND');
+
+      const paymentUpdate = db
+  .prepare(`UPDATE pending_payments SET status = ? WHERE payment_id = ?`)
+  .run('approved', paymentId);
+
+
+  if (product.delivery_type === 'KEY') {
+    const key = db.prepare(`
+      SELECT key FROM product_keys 
+      WHERE product_id = ? AND used = 0 
+      LIMIT 1
+    `).get(product.id);
+
+    if (!key) {
+      throw new Error('KEYS_EXHAUSTED');
+    }
+
+    db.prepare(`
+      UPDATE product_keys 
+      SET used = 1, user_id = ? 
+      WHERE key = ?
+    `).run(payment.user_id, key.key);
+
+} else if (product.delivery_type === 'FILE') {
+    db.prepare(`
+      INSERT INTO file_purchases (user_id, product_id) 
+      VALUES (?, ?)
+    `).run(payment.user_id, product.id);
+}
+
+
+
+      let components = [];
+      let description = product.description;
+
+      if (product.delivery_type === 'KEY') {
+          const key = db.prepare(`SELECT key FROM product_keys WHERE product_id = ? AND used = 0 LIMIT 1`).get(product.id);
+          if (!key) throw new Error('KEYS_EXHAUSTED');
+
+          db.prepare(`UPDATE product_keys SET used = 1, user_id = ? WHERE key = ?`).run(user.id, key.key);
+
+          components.push(new ActionRowBuilder().addComponents(
+              new ButtonBuilder()
+                  .setCustomId(`revealKey_${product.id}`)
+                  .setLabel('Key anzeigen')
+                  .setStyle(ButtonStyle.Primary)
+                  .setEmoji('🔑')
+          ));
+      } else if (product.delivery_type === 'FILE') {
+          components.push(new ActionRowBuilder().addComponents(
+              new ButtonBuilder()
+                  .setLabel('Jetzt downloaden')
+                  .setURL(product.delivery_content)
+                  .setStyle(ButtonStyle.Link)
+          ));
+      }
+
+      const deliveryEmbed = new EmbedBuilder()
+          .setTitle(`🎁 ${product.name} - Kaufbestätigung`)
+          .setDescription(description)
+          .addFields(
+              { name: 'Bestellnummer', value: `#${crypto.randomBytes(4).toString('hex').toUpperCase()}`, inline: true },
+              { name: 'Lieferart', value: product.delivery_type === 'KEY' ? '🔑 Digitaler Key' : '📁 Direktdownload', inline: true }
+          )
+          .setColor(config.EMBEDS.DEFAULT_COLOR)
+          .setThumbnail(product.image_url)
+          .setFooter({ text: 'Die Lieferung erfolgt ausschließlich per DM' });
+
+      await user.send({ embeds: [deliveryEmbed], components: components });
+
+      await interaction.update({ content: '✅ Zahlung erfolgreich bestätigt', components: [] });
+  } catch (error) {
+      console.error('Transaktionsfehler:', error);
+      
+      const errorMessages = {
+          'PRODUCT_NOT_FOUND': '❌ Produkt existiert nicht',
+          'USER_NOT_FOUND': '❌ Benutzer nicht gefunden',
+          'KEYS_EXHAUSTED': '❌ Keine Keys verfügbar',
+          'DM_DELIVERY_FAILED': '❌ Zustellung per DM fehlgeschlagen'
+      };
+      
+      await interaction.reply({
+          content: errorMessages[error.message] || '❌ Unbekannter Fehler',
+          ephemeral: true
+      });
+  }
+});
+
+
+client.on('interactionCreate', async interaction => {
+  if (interaction.commandName === 'leaderboard') {
+    const isGlobal = interaction.options.getBoolean('global') || false;
+    
+    // Berechtigungsprüfung für globales Leaderboard
+    if (isGlobal && !interaction.memberPermissions.has('Administrator')) {
+      return interaction.reply({ content: '🔐 Globales Leaderboard erfordert Admin-Rechte!', ephemeral: true });
+    }
+
+    const users = getLeaderboard(10, !isGlobal, interaction.guildId);
+
+    const embed = new EmbedBuilder()
+      .setTitle(`🏆 ${isGlobal ? 'Globales' : 'Server'} Leaderboard`)
+      .setColor(config.EMBEDS.DEFAULT_COLOR)
+      .setThumbnail(config.EMBEDS.LEADERBOARD_THUMB)
+      .setFooter({ text: `Stand: ${new Date().toLocaleString('de-DE')}` });
+
+    if (users.length === 0) {
+      embed.setDescription('❌ Keine Daten verfügbar');
+      return interaction.reply({ embeds: [embed] });
+    }
+
+    // Platzierungen mit Emojis
+    const podiumEmojis = ['🥇', '🥈', '🥉'];
+    
+    for (let i = 0; i < users.length; i++) {
+      const user = await client.users.fetch(users[i].user_id).catch(() => null);
+      const coins = users[i].coins.toLocaleString('de-DE');
+      
+      embed.addFields({
+        name: `${i < 3 ? podiumEmojis[i] : `#${i + 1}`} ${user?.username || 'Unbekannter User'}`,
+        value: `**${coins}** Coins`,
+        inline: false
+      });
+    }
+
+    // Zusatzinfo für aktuellen User
+    const userRank = db.prepare(`
+      SELECT COUNT(*) as rank 
+      FROM users 
+      WHERE coins > (SELECT coins FROM users WHERE user_id = ?)
+    `).get(interaction.user.id)?.rank + 1;
+
+    embed.addFields({
+      name: 'Dein Rang',
+      value: userRank 
+        ? `Platz #${userRank} mit ${db.prepare('SELECT coins FROM users WHERE user_id = ?').get(interaction.user.id)?.coins || 0} Coins`
+        : 'Nicht in der Top 100',
+      inline: false
+    });
+
+    await interaction.reply({ embeds: [embed] });
+  }
+});
+
+
+
+client.on('interactionCreate', async interaction => {
+  if (interaction.commandName === 'redeem') {
+    const code = interaction.options.getString('code');
+    
+    // Coupon Validierung
+    const coupon = db.prepare(`
+      SELECT * FROM coupons 
+      WHERE code = ? 
+        AND (expires_at > CURRENT_TIMESTAMP)
+        AND (uses < max_uses)
+    `).get(code);
+
+    if (!coupon) return interaction.reply('❌ Ungültiger Coupon');
+    
+    // Coupon dem User zuweisen
+    db.prepare(`
+      INSERT INTO user_coupons (user_id, coupon_code)
+      VALUES (?, ?)
+      ON CONFLICT DO NOTHING
+    `).run(interaction.user.id, code);
+
+    // Globalen Nutzungszähler erhöhen
+    db.prepare(`UPDATE coupons SET uses = uses + 1 WHERE code = ?`).run(code);
+    
+    interaction.reply(`✅ Coupon aktiviert!`);
+  }
+});
+
+db.prepare(`
+  CREATE TABLE IF NOT EXISTS daily_rewards (
+    user_id TEXT PRIMARY KEY,
+    last_claim DATETIME
+  )`).run();
+
+  client.on('interactionCreate', async interaction => {
+    if (interaction.commandName === 'daily') {
+      const result = db.prepare(`
+        INSERT INTO daily_rewards (user_id, last_claim)
+        VALUES (?, ?)
+        ON CONFLICT(user_id) DO UPDATE SET
+          last_claim = CASE WHEN strftime('%s','now') - strftime('%s',last_claim) >= 86400
+                          THEN strftime('%s','now') ELSE last_claim END
+        RETURNING strftime('%s','now') - strftime('%s',last_claim) as diff
+      `).get(interaction.user.id, Math.floor(Date.now()/1000));
+  
+      if (result.diff < 86400) {
+        return interaction.reply('❌ Bereits abgeholt!');
+      }
+  
+      db.prepare(`
+        UPDATE users SET coins = coins + ?
+        WHERE user_id = ?
+      `).run(config.ECONOMY.DAILY_COINS, interaction.user.id);
+      
+      interaction.reply('✅ 100 Coins erhalten!');
+    }
+  });
+
+
+
+
+// ❤️ WISHLIST BUTTON HANDLER
+client.on('interactionCreate', async interaction => {
+  if (!interaction.isButton() || !interaction.customId.startsWith('wishlist_')) return;
+  
+  await interaction.deferReply({ ephemeral: true });
+  const productId = interaction.customId.split('_')[1];
+
+  // Prüfe ob Produkt existiert
+  const product = db.prepare('SELECT id FROM products WHERE id = ?').get(productId);
+  if (!product) return interaction.editReply('❌ Produkt nicht gefunden!');
+
+  // Wunschlisten-Status ermitteln
+  const inWishlist = db.prepare(`
+    SELECT 1 FROM wishlist 
+    WHERE user_id = ? AND product_id = ?
+  `).get(interaction.user.id, productId);
+
+  if (inWishlist) {
+    // Entfernen aus Wunschliste
+    db.prepare(`
+      DELETE FROM wishlist 
+      WHERE user_id = ? AND product_id = ?
+    `).run(interaction.user.id, productId);
+    interaction.editReply('❌ Produkt aus Wunschliste entfernt');
+  } else {
+    // Hinzufügen zur Wunschliste
+    db.prepare(`
+      INSERT INTO wishlist (user_id, product_id)
+      VALUES (?, ?)
+    `).run(interaction.user.id, productId);
+    interaction.editReply('✅ Produkt zur Wunschliste hinzugefügt');
+  }
+
+  // Update den Shop-Embed Button
+  const wishlistButton = new ButtonBuilder()
+    .setCustomId(`wishlist_${productId}`)
+    .setLabel(inWishlist ? 'Zur Wunschliste' : 'In Wunschliste')
+    .setStyle(inWishlist ? ButtonStyle.Success : ButtonStyle.Secondary)
+    .setEmoji(inWishlist ? '❤️' : '🤍');
+
+  const row = new ActionRowBuilder().addComponents(
+    interaction.message.components[0].components[0], // Behalte Kauf-Button
+    wishlistButton
+  );
+
+  await interaction.message.edit({
+    components: [row]
+  });
+});
+
+
+
+  
+
+// 🛒 BUY BUTTON HANDLER (MIT COUPON-SYSTEM)
+client.on('interactionCreate', async interaction => {
+  if (!interaction.isButton() || !interaction.customId.startsWith('buy_')) return;
+  
+  await interaction.deferReply({ ephemeral: true });
+  const productId = interaction.customId.split('_')[1];
+  
+  try {
+    // 1. Produktdaten abrufen
+    const product = db.prepare(`
+      SELECT *, 
+        (SELECT GROUP_CONCAT(code) 
+         FROM user_coupons uc 
+         JOIN coupons c ON uc.coupon_code = c.code
+         WHERE uc.user_id = ?
+           AND uc.used = 0
+           AND (c.product_ids = 'all' OR instr(','||c.product_ids||',', ','||products.id||','))
+        ) as active_coupons
+      FROM products 
+      WHERE id = ?
+    `).get(interaction.user.id, productId);
+
+    if (!product) {
+      return interaction.editReply('⚠️ Produkt nicht gefunden!');
+    }
+
+    // 2. Coupon-Logik
+    let finalPrice = product.price;
+    let usedCoupon = null;
+    
+    if (product.active_coupons) {
+      const couponCode = product.active_coupons.split(',')[0];
+      usedCoupon = db.prepare(`
+        SELECT * FROM coupons 
+        WHERE code = ? 
+          AND expires_at > CURRENT_TIMESTAMP
+          AND uses < max_uses
+      `).get(couponCode);
+
+      if (usedCoupon) {
+        // Preis berechnen
+        const discount = product.price * (usedCoupon.discount_percent / 100);
+        finalPrice = Math.max(0, product.price - discount);
+        
+        // Coupon als verwendet markieren
+        db.prepare(`
+          UPDATE user_coupons 
+          SET used = 1 
+          WHERE user_id = ? AND coupon_code = ?
+        `).run(interaction.user.id, usedCoupon.code);
+      }
+    }
+
+    // 3. Kontostand prüfen
+    const userData = db.prepare(`
+      SELECT coins FROM users 
+      WHERE user_id = ?
+    `).get(interaction.user.id) || { coins: 0 };
+
+    if (userData.coins < finalPrice) {
+      const missing = finalPrice - userData.coins;
+      return interaction.editReply(
+        `❌ Nicht genug Coins! Du benötigst ${missing} Coins mehr.` + 
+        (usedCoupon ? `\n(Coupon-Rabatt bereits eingerechnet)` : '')
+      );
+    }
+
+    // 4. Transaktion für kritische Operationen
+    const transaction = db.transaction(() => {
+      // Bezahlung durchführen
+      db.prepare(`
+        UPDATE users 
+        SET coins = coins - ? 
+        WHERE user_id = ?
+      `).run(finalPrice, interaction.user.id);
+
+      if (product.delivery_type === 'KEY') {
+        const key = db.prepare(`
+          SELECT key FROM product_keys 
+          WHERE product_id = ? AND used = 0 
+          LIMIT 1
+        `).get(product.id);
+
+        if (!key) throw new Error('KEYS_EXHAUSTED');
+
+        db.prepare(`
+          UPDATE product_keys 
+          SET used = 1, user_id = ? 
+          WHERE key = ?
+        `).run(interaction.user.id, key.key);
+      }
+      
+      // Dateikauf registrieren
+      if (product.delivery_type === 'FILE') {
+        db.prepare(`
+          INSERT OR IGNORE INTO file_purchases (user_id, product_id)
+          VALUES (?, ?)
+        `).run(interaction.user.id, product.id);
+      }
+    });
+
+    transaction();
+
+    // 5. Lieferungsnachricht erstellen
+    const deliveryEmbed = new EmbedBuilder()
+      .setTitle(`🎁 ${product.name} - Kaufbestätigung`)
+      .setDescription([
+        product.description,
+        usedCoupon && `🎉 **${usedCoupon.discount_percent}% Rabatt angewendet!**`,
+        `💳 **Bezahlter Betrag:** ${finalPrice} Coins`
+      ].filter(Boolean).join('\n\n'))
+      .addFields(
+        { 
+          name: 'Bestellnummer', 
+          value: `#${crypto.randomBytes(4).toString('hex').toUpperCase()}`,
+          inline: true 
+        },
+        { 
+          name: 'Lieferart', 
+          value: product.delivery_type === 'KEY' ? '🔑 Digitaler Key' : '📁 Direktdownload',
+          inline: true 
+        }
+      )
+      .setColor(config.EMBEDS.DEFAULT_COLOR)
+      .setThumbnail(product.image_url)
+      .setFooter({ text: 'Die Lieferung erfolgt ausschließlich per DM' });
+
+    // 6. Lieferbutton konfigurieren
+    const components = new ActionRowBuilder().addComponents(
+      product.delivery_type === 'FILE' 
+        ? new ButtonBuilder()
+            .setLabel('Jetzt downloaden')
+            .setURL(product.delivery_content)
+            .setStyle(ButtonStyle.Link)
+        : new ButtonBuilder()
+            .setCustomId(`revealKey_${product.id}`)
+            .setLabel('Key anzeigen')
+            .setStyle(ButtonStyle.Primary)
+            .setEmoji('🔑')
+    );
+
+    // 7. DM senden mit Bestelldetails
+    await interaction.user.send({
+      embeds: [deliveryEmbed],
+      components: [components]
+    });
+
+    // 8. Bestätigung an User
+    await interaction.editReply({
+      content: '✅ Kauf erfolgreich! Die Lieferdetails wurden dir per DM gesendet.',
+    });
+
+  } catch (error) {
+    console.error('Kauffehler:', error);
+    
+    const errorMessage = {
+      'KEYS_EXHAUSTED': '❌ Vorübergehend ausverkauft! Bitte später erneut versuchen.',
+    }[error.message] || '❌ Ein kritischer Fehler ist aufgetreten!';
+
+    await interaction.editReply(errorMessage);
+  }
+});
+
+// 🔑 KEY REVEAL HANDLER (FIXED)
+client.on('interactionCreate', async interaction => {
+  // First check if it's a button interaction
+  if (!interaction.isButton() || !interaction.customId.startsWith('revealKey_')) return;
+  
+  const productId = interaction.customId.split('_')[1];
+  
+  const key = db.prepare(`
+    SELECT key FROM product_keys 
+    WHERE user_id = ? AND product_id = ? AND used = 1 
+    ORDER BY ROWID DESC 
+    LIMIT 1
+  `).get(interaction.user.id, productId);
+
+  if (key) {
+    await interaction.reply({
+      content: `🔑 Dein Key: ||${key.key}||`,
+      ephemeral: true
+    });
+  } else {
+    await interaction.reply({
+      content: '❌ Kein Key gefunden!',
+      ephemeral: true
+    });
+  }
+});
+
+// 🔧 ADMIN: PRODUCT CREATION
+client.on('interactionCreate', async interaction => {
+  if (interaction.commandName === 'createproduct') {
+    // Berechtigungen prüfen
+    if (!interaction.memberPermissions.has('Administrator')) {
+      return interaction.reply({ content: '🔒 Admin-Berechtigung benötigt!', ephemeral: true });
+    }
+
+    // Optionen auslesen
+    const name = interaction.options.getString('name');
+    const price = interaction.options.getInteger('price');
+    const description = interaction.options.getString('description');
+    const image = interaction.options.getString('image');
+    const deliveryType = interaction.options.getString('delivery_type');
+    const deliveryContent = interaction.options.getString('delivery_content');
+
+    try {
+      // Produkt in Datenbank speichern
+      const result = db.prepare(`
+        INSERT INTO products 
+        (name, price, description, image_url, delivery_type, delivery_content)
+        VALUES (?, ?, ?, ?, ?, ?)
+      `).run(name, price, description, image, deliveryType, deliveryContent);
+
+      // Bei Key-Lieferung Keys generieren
+      if (deliveryType === 'KEY') {
+        const keysToGenerate = 10;
+        const stmt = db.prepare(`
+          INSERT INTO product_keys (key, product_id) 
+          VALUES (?, ?)
+        `);
+
+        for (let i = 0; i < keysToGenerate; i++) {
+          const key = generateProductKey(deliveryContent);
+          stmt.run(key, result.lastInsertRowid);
+        }
+      }
+
+      // Bestätigung senden
+      const embed = new EmbedBuilder()
+        .setTitle('🎉 Neues Produkt erstellt')
+        .addFields(
+          { name: 'Name', value: name, inline: true },
+          { name: 'Preis', value: `${price} Coins`, inline: true },
+          { name: 'Liefertyp', value: deliveryType, inline: true },
+          { name: 'ID', value: `#${result.lastInsertRowid}`, inline: true }
+        )
+        .setThumbnail(image)
+        .setColor(config.EMBEDS.DEFAULT_COLOR)
+
+      await interaction.reply({ embeds: [embed], ephemeral: true });
+
+    } catch (error) {
+      console.error('Fehler beim Erstellen:', error);
+      await interaction.reply({ 
+        content: '❌ Fehler beim Erstellen des Produkts!', 
+        ephemeral: true 
+      });
+    }
+  }
+});
+
+
+// --------------------------------------------------
+// 💰 COUPON SYSTEM
+// --------------------------------------------------
+client.on('interactionCreate', async interaction => {
+  if (interaction.commandName === 'createcoupon') {
+    if (!interaction.memberPermissions.has('Administrator')) {
+      return interaction.reply({ content: '🔒 Keine Berechtigung!', ephemeral: true });
+    }
+
+    const discount = interaction.options.getInteger('discount');
+    const products = interaction.options.getString('products') || 'all';
+    const duration = interaction.options.getInteger('duration');
+    const maxUses = interaction.options.getInteger('uses');
+
+    const couponCode = generateCouponCode();
+    const expiresAt = new Date(Date.now() + duration * 3600000);
+
+    db.prepare(`
+      INSERT INTO coupons (code, discount_percent, product_ids, expires_at, max_uses)
+      VALUES (?, ?, ?, ?, ?)
+    `).run(couponCode, discount, products, expiresAt.toISOString(), maxUses);
+
+    const embed = new EmbedBuilder()
+      .setTitle('🎟️ Neuer Coupon')
+      .addFields(
+        { name: 'Code', value: `\`${couponCode}\`` },
+        { name: 'Rabatt', value: `${discount}%`, inline: true },
+        { name: 'Gültig für', value: products === 'all' ? 'Alle Produkte' : products, inline: true },
+        { name: 'Läuft ab', value: `<t:${Math.floor(expiresAt.getTime()/1000)}:R>`, inline: true }
+      );
+
+    await interaction.reply({ embeds: [embed], ephemeral: true });
+  }
+});
+
+// --------------------------------------------------
+// ⭐ RATING SYSTEM
+// --------------------------------------------------
+client.on('interactionCreate', async interaction => {
+  if (interaction.commandName === 'rateproduct') {
+    const productId = interaction.options.getInteger('product_id');
+    const rating = interaction.options.getInteger('rating');
+    const review = interaction.options.getString('review');
+
+    const hasPurchased = db.prepare(`
+      SELECT 1 FROM (
+        SELECT product_id, user_id FROM product_keys WHERE used = 1
+        UNION
+        SELECT product_id, user_id FROM file_purchases
+      ) WHERE product_id = ? AND user_id = ?
+    `).get(productId, interaction.user.id);
+
+    if (!hasPurchased) {
+      return interaction.reply({ 
+        content: '❌ Nur für Käufer!', 
+        ephemeral: true 
+      });
+    }
+
+    db.prepare(`
+      INSERT INTO product_ratings (user_id, product_id, rating, review)
+      VALUES (?, ?, ?, ?)
+      ON CONFLICT(user_id, product_id) 
+      DO UPDATE SET rating = excluded.rating, review = excluded.review
+    `).run(interaction.user.id, productId, rating, review);
+
+    await interaction.reply({ 
+      content: '✅ Bewertung gespeichert!', 
+      ephemeral: true 
+    });
+  }
+});
+
+
+
+// 💰 Balance System
+client.on('interactionCreate', async interaction => {
+  if (interaction.commandName === 'balance') {
+    const target = interaction.options.getUser('user') || interaction.user;
+    const balance = db.prepare('SELECT coins FROM users WHERE user_id = ?').get(target.id)?.coins || 0;
+
+    const embed = new EmbedBuilder()
+      .setTitle(`💰 Kontostand von ${target.username}`)
+      .setDescription(`${balance} Coins`)
+      .setColor(config.EMBEDS.DEFAULT_COLOR)
+      .setThumbnail(target.displayAvatarURL());
+
+    await interaction.reply({ embeds: [embed] });
+  }
+});
+
+// 🎉 Giveaway System
+const activeGiveaways = new Map();
+
+client.on('interactionCreate', async interaction => {
+  if (interaction.commandName === 'giveaway') {
+    if (!interaction.memberPermissions.has('Administrator')) {
+      return interaction.reply({ content: '🔒 Admin-Berechtigung benötigt!', ephemeral: true });
+    }
+
+    const duration = interaction.options.getInteger('duration');
+    const coins = interaction.options.getInteger('coins');
+    const winners = interaction.options.getInteger('winners');
+    const giveawayId = crypto.randomBytes(8).toString('hex');
+
+    const endTime = Date.now() + duration * 60000;
+
+    const embed = new EmbedBuilder()
+      .setTitle('🎉 NEUES GIVEAWAY 🎉')
+      .setDescription(
+        `**Preis:** ${coins} Coins\n` +
+        `**Gewinner:** ${winners}\n` +
+        `**Endet:** <t:${Math.floor(endTime/1000)}:R>`
+      )
+      .setColor(config.EMBEDS.DEFAULT_COLOR)
+
+    const button = new ButtonBuilder()
+      .setCustomId(`giveaway_${giveawayId}`)
+      .setLabel('Mitmachen')
+      .setStyle(ButtonStyle.Primary);
+
+      const row = new ActionRowBuilder().addComponents(button);
+      const channel = client.channels.cache.get(config.CHANNELS.GIVEAWAY_CHANNEL);
+      
+      // Korrekter send()-Aufruf
+      const message = await channel.send({ 
+        embeds: [embed], 
+        components: [row]
+      });
+
+    activeGiveaways.set(giveawayId, {
+      endTime,
+      coins,
+      winners,
+      participants: [],
+      messageId: message.id
+    });
+
+    // Giveaway Timer
+    setTimeout(async () => {
+      const giveaway = activeGiveaways.get(giveawayId);
+      if (!giveaway) return;
+
+      const winners = giveaway.participants
+        .sort(() => Math.random() - 0.5)
+        .slice(0, giveaway.winners);
+
+      // Coins verteilen
+      winners.forEach(userId => {
+        db.prepare(`
+          INSERT INTO users (user_id, coins)
+          VALUES (?, COALESCE((SELECT coins FROM users WHERE user_id = ?), 0) + ?)
+          ON CONFLICT(user_id) DO UPDATE SET coins = excluded.coins
+        `).run(userId, userId, giveaway.coins);
+      });
+
+      const resultEmbed = new EmbedBuilder()
+        .setTitle('🎉 GIVEAWAY BEENDET 🎉')
+        .setDescription(winners.length > 0 
+          ? `Gewinner: ${winners.map(w => `<@${w}>`).join(' ')}\nJeder erhält ${giveaway.coins} Coins!` 
+          : 'Keine Teilnehmer 😢')
+        .setColor(winners.length > 0 ? 0x00FF00 : 0xFF0000);
+
+      await interaction.followUp({ embeds: [resultEmbed] });
+      activeGiveaways.delete(giveawayId);
+    }, duration * 60000);
+  }
+});
+
+// Giveaway Button Handler
+client.on('interactionCreate', async interaction => {
+  if (!interaction.isButton() || !interaction.customId.startsWith('giveaway_')) return;
+
+  const giveawayId = interaction.customId.split('_')[1];
+  const giveaway = activeGiveaways.get(giveawayId);
+
+  if (!giveaway || Date.now() > giveaway.endTime) {
+    return interaction.reply({ 
+      content: 'Giveaway bereits beendet!', 
+      ephemeral: true 
+    });
+  }
+
+  if (giveaway.participants.includes(interaction.user.id)) {
+    return interaction.reply({ 
+      content: 'Du bist bereits dabei!', 
+      ephemeral: true 
+    });
+  }
+
+  giveaway.participants.push(interaction.user.id);
+  await interaction.reply({ 
+    content: '✅ Erfolgreich teilgenommen!', 
+    ephemeral: true 
+  });
+});
+
+
+// --------------------------------------------------
+// ❤️ WISHLIST SYSTEM
+// --------------------------------------------------
+client.on('interactionCreate', async interaction => {
+  if (interaction.commandName === 'wishlist') {
+    const subcommand = interaction.options.getSubcommand();
+
+    switch(subcommand) {
+      case 'show':
+        const wishlist = db.prepare(`
+          SELECT p.id, p.name FROM wishlist w
+          JOIN products p ON w.product_id = p.id
+          WHERE w.user_id = ?
+        `).all(interaction.user.id);
+
+        const embed = new EmbedBuilder()
+          .setTitle('🎁 Deine Wunschliste')
+          .setDescription(wishlist.map(p => `#${p.id} - ${p.name}`).join('\n') || 'Leer')
+          .setColor(config.EMBEDS.DEFAULT_COLOR)
+
+        await interaction.reply({ embeds: [embed], ephemeral: true });
+        break;
+
+      case 'add':
+        const productId = interaction.options.getInteger('product_id');
+        db.prepare(`
+          INSERT OR IGNORE INTO wishlist (user_id, product_id)
+          VALUES (?, ?)
+        `).run(interaction.user.id, productId);
+        await interaction.reply({ 
+          content: '✅ Produkt hinzugefügt!', 
+          ephemeral: true 
+        });
+        break;
+
+      case 'remove':
+        const removeId = interaction.options.getInteger('product_id');
+        db.prepare(`
+          DELETE FROM wishlist 
+          WHERE user_id = ? AND product_id = ?
+        `).run(interaction.user.id, removeId);
+        await interaction.reply({ 
+          content: '✅ Produkt entfernt!', 
+          ephemeral: true 
+        });
+        break;
+    }
+  }
+});
+
+// 🔑 START BOT
+client.login(config.BOT_TOKEN);
