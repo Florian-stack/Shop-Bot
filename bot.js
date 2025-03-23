@@ -1,12 +1,12 @@
-import { Client, GatewayIntentBits, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, StringSelectMenuBuilder} from 'discord.js';
-import { SlashCommandBuilder } from '@discordjs/builders';
-import sqlite from 'better-sqlite3';
-import path from 'path';
-import crypto from 'crypto';
-import { ComponentType } from 'discord.js';
-import { MessageFlags } from 'discord.js';
-import { ModalBuilder, TextInputBuilder, TextInputStyle } from 'discord.js';
-import config from './config.js';
+const { Client, GatewayIntentBits, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, StringSelectMenuBuilder } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const sqlite = require('better-sqlite3');
+const path = require('path');
+const crypto = require('crypto');
+const { ComponentType } = require('discord.js');
+const { MessageFlags } = require('discord.js');
+const { ModalBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
+const config = require('./config.js');
 
 
 
